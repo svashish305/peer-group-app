@@ -2,6 +2,48 @@
 :root {
   --primary: #6c63ff;
   --secondary: #fff;
+
+  @font-face {
+    font-family: 'EncodeSansLight';
+    src: url('assets/fonts/Encode_Sans/encode-sans.light.ttf');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'EncodeSansRegular';
+    src: url('assets/fonts/Encode_Sans/encode-sans.regular.ttf');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'EncodeSansSemibold';
+    src: url('assets/fonts/Encode_Sans/encode-sans.semibold.ttf');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'EncodeSansMedium';
+    src: url('assets/fonts/Encode_Sans/encode-sans.medium.ttf');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'EncodeSansBold';
+    src: url('assets/fonts/Encode_Sans/encode-sans.bold.ttf');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'EncodeSansExtrabold';
+    src: url('assets/fonts/Encode_Sans/encode-sans.extrabold.ttf');
+    font-weight: normal;
+    font-style: normal;
+  }
 }
 
 .App {
