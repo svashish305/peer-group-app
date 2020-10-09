@@ -1,5 +1,6 @@
 import React from 'react';
-import './App.css';
+import Sidebar from './components/sidebar/sidebar';
+import './App.scss';
 
 function App() {
   return (
@@ -7,6 +8,7 @@ function App() {
       <header className="App-header">
         Peer Group App
       </header>
+      <Sidebar />
     </div>
   );
 }
