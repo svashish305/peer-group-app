@@ -9,7 +9,7 @@ class Sidebar extends React.Component {
  
   render () {
     return (
-    <div id="outer-container">
+      <div id="outer-container">
 				<Menu right disableAutoFocus outerContainerId={ "outer-container" }>
 						<a id="logout" className="menu-item" href=".">LOG OUT</a>
 				</Menu>
