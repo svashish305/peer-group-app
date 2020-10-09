@@ -47,7 +47,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
 /* General sidebar styles */
 .bm-menu {
   background: var(--primary);
-  padding: 4.25em 1.5em 0;
+  padding: 4.25em 0 0;
   font-size: 1.15em;
   overflow: hidden !important;
 }
@@ -78,6 +78,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
 
 .menu-item {
   font-family: 'EncodeSansSemibold';
+  background-color: var(--accent);
   color: var(--secondary);
   height: 4rem;
 }
