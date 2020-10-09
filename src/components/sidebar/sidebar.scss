@@ -65,10 +65,19 @@ Note: Beware of modifying this element as it can break the animations - you shou
 
 /* Individual item */
 .bm-item {
-  display: inline-block;
+  // display: inline-block;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Styling of overlay */
 .bm-overlay {
   background: rgba(0, 0, 0, 0.3);
+}
+
+.menu-item {
+  font-family: 'EncodeSansSemibold';
+  color: var(--secondary);
+  height: 4rem;
 }
