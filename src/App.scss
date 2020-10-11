@@ -4,6 +4,7 @@
   --secondary: #fff;
   --accent: #5d55e7;
   --inputColor: #e7effd;
+  --inputPlaceholderColor: #65617d;
   --readOnlyColor: #e6e8ec;
 }
 
@@ -70,6 +71,7 @@
   color: #61dafb;
 }
 
+// common styles
 a {
   text-decoration: none;
 }
@@ -83,3 +85,43 @@ a {
 .d-flex {
   display: flex;
 }
+
+// margin
+.mt-34 {
+  margin-top: 2.125rem;
+}
+
+.mb-54 {
+  margin-bottom: 3.375rem;
+}
+
+.mb-32 {
+  margin-bottom: 2rem;
+}
+
+.mb-26 {
+  margin-bottom: 1.625rem;
+}
+
+.mb-20 {
+  margin-bottom: 1.25rem;
+}
+
+.mb-16 {
+  margin-bottom: 1rem;
+}
+
+.mb-12 {
+  margin-bottom: 0.75rem;
+}
+// end of margin
+
+// padding
+.p-16 {
+  padding: 1rem;
+}
+
+.p-26-24 {
+  padding: 1.625rem 1.5rem;
+}
+// end of padding

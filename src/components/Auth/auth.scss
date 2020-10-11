@@ -1,6 +1,6 @@
 @media only screen and (max-width: 768px) {
   .main-container {
-    margin: 0 1rem;
+    margin: 0 2.40625rem;
   }
 
   .title {
@@ -10,14 +10,59 @@
     color: var(--primary);
   }
 
-  .logo {
-    width: 90vw;
+  .auth-container {
+    background: #fff;
+    border: 1px solid var(--primary);
+    box-sizing: border-box;
+    border-radius: 5px;
+  }
+
+  .auth-input {
+    width: -webkit-fill-available;
+    height: 2.5rem;
+    background: var(--inputColor);
+    border: none;
+    border-radius: 5px;
+  }
+
+  .auth-input::placeholder {
+    color: var(--inputPlaceholderColor);
+    padding-left: 0.75rem;
+    font-family: 'EncodeSansLight';
+  }
+
+  .login-btn {
+    width: -webkit-fill-available;
+    height: 2.5rem;
+    background: var(--primary);
+    border: none;
+    border-radius: 5px;
+  }
+
+  .register-btn {
+    width: -webkit-fill-available;
+    height: 2.5rem;
+    background: #fff;
+    border: 1px solid var(--primary);
+    border-radius: 5px;
+  }
+
+  .login-btn-text {
+    text-transform: uppercase;
+    font-family: 'EncodeSansSemibold';
+    color: #fff;
+  }
+
+  .register-btn-text {
+    text-transform: uppercase;
+    font-family: 'EncodeSansSemibold';
+    color: var(--primary);
   }
 }
 
 @media only screen and (min-width: 769px) and (max-width: 1224px) {
   .main-container {
-    margin: 0 1rem;
+    margin: 0 3rem;
   }
 
   .title {
@@ -27,14 +72,63 @@
     color: var(--primary);
   }
 
-  .logo {
-    width: 50vw;
+  .custom-row {
+    display: flex;
+  }
+
+  .auth-container {
+    background: #fff;
+    border: 1px solid var(--primary);
+    box-sizing: border-box;
+    border-radius: 5px;
+  }
+
+  .auth-input {
+    width: -webkit-fill-available;
+    height: 2.5rem;
+    background: var(--inputColor);
+    border: none;
+    border-radius: 5px;
+  }
+
+  .auth-input::placeholder {
+    color: var(--inputPlaceholderColor);
+    padding-left: 0.75rem;
+    font-family: 'EncodeSansLight';
+  }
+
+  .login-btn {
+    width: -webkit-fill-available;
+    height: 2.5rem;
+    background: var(--primary);
+    border: none;
+    border-radius: 5px;
+  }
+
+  .register-btn {
+    width: -webkit-fill-available;
+    height: 2.5rem;
+    background: #fff;
+    border: 1px solid var(--primary);
+    border-radius: 5px;
+  }
+
+  .login-btn-text {
+    text-transform: uppercase;
+    font-family: 'EncodeSansSemibold';
+    color: #fff;
+  }
+
+  .register-btn-text {
+    text-transform: uppercase;
+    font-family: 'EncodeSansSemibold';
+    color: var(--primary);
   }
 }
 
 @media only screen and (min-width: 1225px) {
   .main-container {
-    margin: 0 1rem;
+    margin: 0 4rem;
   }
 
   .title {
@@ -44,7 +138,62 @@
     color: var(--primary);
   }
 
-  .logo {
-    width: 50vw;
+  .custom-row {
+    display: flex;
+  }
+
+  .auth-container {
+    background: #fff;
+    border: 1px solid var(--primary);
+    box-sizing: border-box;
+    border-radius: 5px;
+
+    position: absolute;
+    width: 25.75rem;
+    height: 25.125rem;
+    left: calc(50% - 25.75rem / 2 + 26.3125rem);
+    top: calc(50% - 25.125rem / 2 + 2.3125rem);
+  }
+
+  .auth-input {
+    width: -webkit-fill-available;
+    height: 3.875rem;
+    background: var(--inputColor);
+    border: none;
+    border-radius: 5px;
+  }
+
+  .auth-input::placeholder {
+    color: var(--inputPlaceholderColor);
+    padding-left: 0.75rem;
+    font-family: 'EncodeSansLight';
+  }
+
+  .login-btn {
+    width: -webkit-fill-available;
+    height: 3.875rem;
+    background: var(--primary);
+    border: none;
+    border-radius: 5px;
+  }
+
+  .register-btn {
+    width: -webkit-fill-available;
+    height: 3.875rem;
+    background: #fff;
+    border: 1px solid var(--primary);
+    border-radius: 5px;
+  }
+
+  .login-btn-text {
+    text-transform: uppercase;
+    font-family: 'EncodeSansSemibold';
+    color: #fff;
+  }
+
+  .register-btn-text {
+    text-transform: uppercase;
+    font-family: 'EncodeSansSemibold';
+    color: var(--primary);
   }
 }
