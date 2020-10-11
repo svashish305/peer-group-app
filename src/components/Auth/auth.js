@@ -38,7 +38,11 @@ function Auth() {
       <span className='flex-center title'>Peer Group Portal</span>
       <Container>
         <Row className='custom-row'>
-          <Col>
+          <Col
+            className={
+              isTabletOrMobile || isTabletOrMobileDevice ? null : 'mt-66'
+            }
+          >
             <Image
               className='logo'
               src={
