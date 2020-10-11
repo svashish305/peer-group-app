@@ -86,7 +86,7 @@ function Auth() {
               />
               <br />
               <button
-                className={`login-btn ${
+                className={`login-btn pointer ${
                   isTabletOrMobile || isTabletOrMobileDevice ? 'mb-16' : 'mb-26'
                 }`}
                 onClick={loginClicked}
@@ -96,7 +96,7 @@ function Auth() {
               </button>
               <br />
               <button
-                className='register-btn'
+                className='register-btn pointer'
                 onClick={registerClicked}
                 disabled={isDisabled}
               >
