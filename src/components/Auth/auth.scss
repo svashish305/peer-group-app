@@ -1,0 +1,50 @@
+@media only screen and (max-width: 768px) {
+  .main-container {
+    margin: 0 1rem;
+  }
+
+  .title {
+    margin: 3rem 0 2rem 0;
+    font-size: 0.875rem;
+    font-family: 'EncodeSansBold';
+    color: var(--primary);
+  }
+
+  .logo {
+    width: 90vw;
+  }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 1224px) {
+  .main-container {
+    margin: 0 1rem;
+  }
+
+  .title {
+    margin: 3rem 0 2rem 0;
+    font-size: 3rem;
+    font-family: 'EncodeSansBold';
+    color: var(--primary);
+  }
+
+  .logo {
+    width: 50vw;
+  }
+}
+
+@media only screen and (min-width: 1225px) {
+  .main-container {
+    margin: 0 1rem;
+  }
+
+  .title {
+    margin: 3rem 0 3rem 0;
+    font-size: 3rem;
+    font-family: 'EncodeSansBold';
+    color: var(--primary);
+  }
+
+  .logo {
+    width: 50vw;
+  }
+}

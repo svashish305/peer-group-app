@@ -2,11 +2,19 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import Auth from './components/Auth/auth';
+import {Route, BrowserRouter} from 'react-router-dom';
+import {CookiesProvider} from 'react-cookie';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <CookiesProvider>
+      <BrowserRouter>
+        <Route exact path="/" component={Auth} />
+        <Route exact path="/dashboard" component={App} />
+      </BrowserRouter>
+    </CookiesProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

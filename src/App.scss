@@ -80,9 +80,6 @@ a {
   align-items: center;
 }
 
-.title {
-  margin-top: 3rem;
-  font-size: 0.875rem;
-  font-family: 'EncodeSansBold';
-  color: var(--primary);
+.d-flex {
+  display: flex;
 }
