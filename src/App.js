@@ -3,6 +3,7 @@ import {useCookies} from 'react-cookie';
 import {useFetch} from './hooks/useFetch';
 import Sidebar from './components/Sidebar/sidebar';
 import Dashboard from './components/Dashboard/dashboard';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.scss';
 
 function App() {

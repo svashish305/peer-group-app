@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { API } from '../../api-service';
 import { useCookies } from 'react-cookie';
 import { useMediaQuery } from 'react-responsive';
-import { Container, Row, Col, Image } from 'react-bootstrap';
+import { Container, Row, Col, Image, Button } from 'react-bootstrap';
 import './auth.scss';
 
 function Auth() {
@@ -85,7 +85,7 @@ function Auth() {
                 onChange={(evt) => setPassword(evt.target.value)}
               />
               <br />
-              <button
+              <Button
                 className={`login-btn pointer ${
                   isTabletOrMobile || isTabletOrMobileDevice ? 'mb-16' : 'mb-26'
                 }`}
@@ -93,15 +93,15 @@ function Auth() {
                 disabled={isDisabled}
               >
                 <span className='login-btn-text'>Login</span>
-              </button>
+              </Button>
               <br />
-              <button
+              <Button
                 className='register-btn pointer'
                 onClick={registerClicked}
                 disabled={isDisabled}
               >
                 <span className='register-btn-text'>Register</span>
-              </button>
+              </Button>
             </div>
           </Col>
         </Row>
