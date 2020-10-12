@@ -24,7 +24,9 @@ function useFetch() {
           setLoading(false);
       }
       fetchData();    
-  }, []);
+  },
+  // eslint-disable-next-line 
+  []);
   return [loggedInUser, isAdmin, loading, error] 
 }
 
