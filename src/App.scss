@@ -1,0 +1,135 @@
+// colors
+:root {
+  --primary: #6c63ff;
+  --secondary: #fff;
+  --accent: #5d55e7;
+  --inputColor: #e7effd;
+  --inputPlaceholderColor: #65617d;
+  --readOnlyColor: #e6e8ec;
+}
+
+// fonts
+@font-face {
+  font-family: 'EncodeSansLight';
+  src: url('/assets/fonts/Encode_Sans/encode-sans.light.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'EncodeSansRegular';
+  src: url('/assets/fonts/Encode_Sans/encode-sans.regular.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'EncodeSansSemibold';
+  src: url('/assets/fonts/Encode_Sans/encode-sans.semibold.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'EncodeSansMedium';
+  src: url('/assets/fonts/Encode_Sans/encode-sans.medium.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'EncodeSansBold';
+  src: url('/assets/fonts/Encode_Sans/encode-sans.bold.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'EncodeSansExtrabold';
+  src: url('/assets/fonts/Encode_Sans/encode-sans.extrabold.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: var(--primary);
+  min-height: 8vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'EncodeSansExtrabold';
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+// common styles
+.pointer {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.d-flex {
+  display: flex;
+}
+
+// margin
+.mt-66 {
+  margin-top: 4.125rem;
+}
+
+.mt-34 {
+  margin-top: 2.125rem;
+}
+
+.mb-54 {
+  margin-bottom: 3.375rem;
+}
+
+.mb-32 {
+  margin-bottom: 2rem;
+}
+
+.mb-26 {
+  margin-bottom: 1.625rem;
+}
+
+.mb-20 {
+  margin-bottom: 1.25rem;
+}
+
+.mb-16 {
+  margin-bottom: 1rem;
+}
+
+.mb-12 {
+  margin-bottom: 0.75rem;
+}
+// end of margin
+
+// padding
+.p-16 {
+  padding: 1rem;
+}
+
+.p-26-24 {
+  padding: 1.625rem 1.5rem;
+}
+// end of padding
