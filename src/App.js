@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useEffect} from 'react';
 import {useCookies} from 'react-cookie';
 import {useFetch} from './hooks/useFetch';
 import Sidebar from './components/sidebar/sidebar';
@@ -7,7 +7,7 @@ import './App.scss';
 
 function App() {
 
-  const [token, setToken] = useCookies(['pg-token']);
+  const [token] = useCookies(['pg-token']);
   const [loggedInUser, isAdmin, loading, error] = useFetch();
 
   useEffect(() => {
