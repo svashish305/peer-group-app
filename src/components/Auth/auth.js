@@ -10,10 +10,6 @@ function Auth() {
   const isTabletOrMobileDevice = useMediaQuery({
     query: '(max-device-width: 1224px)',
   });
-  const isDesktopOrLaptop = useMediaQuery({
-    query: '(min-device-width: 1225px)'
-  })
-  const isBigScreen = useMediaQuery({ query: '(min-device-width: 1440px)' })
   const is4k = useMediaQuery({ query: '(min-device-width: 2560px)' })
 
 

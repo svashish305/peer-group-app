@@ -4,7 +4,7 @@ import { useCookies } from 'react-cookie';
 import { useMediaQuery } from 'react-responsive';
 import { Container, Row, Col, Image, Button } from 'react-bootstrap';
 import { Typeahead } from 'react-bootstrap-typeahead';
-import 'react-bootstrap-typeahead/css/Typeahead.css';
+import 'react-bootstrap-typeahead/css/Typeahead.scss';
 import './dashboard.scss';
 
 function Dashboard(props) {
@@ -45,14 +45,18 @@ function Dashboard(props) {
     <React.Fragment>
       {props.isAdmin ? (
       <div className='dashboard-container'>
-        <Typeahead
-          id="basic-group-typeahead-single"
-          labelKey="name"
-          onChange={setSelectedTypeaheadGroup}
-          options={groups}
-          placeholder="Search Groups"
-          selected={selectedTypeaheadGroup}
-        />
+        <div className='search-container'>
+          <Typeahead
+            id="basic-group-typeahead-single"
+            className='group-typeahead'
+            labelKey="name"
+            onChange={setSelectedTypeaheadGroup}
+            options={groups}
+            placeholder="Search Groups"
+            selected={selectedTypeaheadGroup}
+          />
+          <Button>Add +</Button> {/* button to add new group */}
+        </div>
 
         <div className='group-list'>
           {groups && groups.length && groups.map((group) => {
