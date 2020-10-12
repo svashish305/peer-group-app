@@ -6,8 +6,8 @@ import Dashboard from './components/dashboard';
 import './App.scss';
 
 function App() {
-
-  const [token] = useCookies(['pg-token']);
+  // eslint-disable-next-line
+  const [token, setToken] = useCookies(['pg-token']);
   const [loggedInUser, isAdmin, loading, error] = useFetch();
 
   useEffect(() => {
