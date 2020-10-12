@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { API } from '../../api-service';
 import { useCookies } from 'react-cookie';
 import { useMediaQuery } from 'react-responsive';
-import { Container, Row, Col, Image } from 'react-bootstrap';
+import { Container, Row, Col, Image, Button } from 'react-bootstrap';
 import './auth.scss';
 
 function Auth() {
@@ -10,6 +10,12 @@ function Auth() {
   const isTabletOrMobileDevice = useMediaQuery({
     query: '(max-device-width: 1224px)',
   });
+  const isDesktopOrLaptop = useMediaQuery({
+    query: '(min-device-width: 1225px)'
+  })
+  const isBigScreen = useMediaQuery({ query: '(min-device-width: 1440px)' })
+  const is4k = useMediaQuery({ query: '(min-device-width: 2560px)' })
+
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -35,29 +41,23 @@ function Auth() {
 
   return (
     <div className='main-container'>
-      <span className='flex-center title'>Peer Group Portal</span>
+      <span className={`flex-center title ${is4k ? 'mb-320': null}`}>Peer Group Portal</span>
       <Container>
-        <Row className='custom-row'>
-          <Col
-            className={
-              isTabletOrMobile || isTabletOrMobileDevice ? null : 'mt-66'
-            }
-          >
+        <Row>
+          <Col xs={12} sm={12} md={12} lg={12} xl={8} className={`img-col ${
+                isTabletOrMobile || isTabletOrMobileDevice ? 'mb-32 flex-center' : null
+              }`}>
             <Image
-              className='logo'
+              className='auth-img'
               src={
                 isTabletOrMobile || isTabletOrMobileDevice
-                  ? '/assets/images/logomobile.svg'
-                  : '/assets/images/logo.svg'
+                  ? '/assets/images/auth-img-mobile.svg'
+                  : '/assets/images/auth-img.svg'
               }
               fluid
             />
           </Col>
-          <Col
-            className={
-              isTabletOrMobile || isTabletOrMobileDevice ? 'mt-34' : null
-            }
-          >
+          <Col xs={12} sm={12} md={12} lg={12} xl={4}>
             <div
               className={`auth-container ${
                 isTabletOrMobile || isTabletOrMobileDevice ? 'p-16' : 'p-26-24'
@@ -85,7 +85,7 @@ function Auth() {
                 onChange={(evt) => setPassword(evt.target.value)}
               />
               <br />
-              <button
+              <Button
                 className={`login-btn pointer ${
                   isTabletOrMobile || isTabletOrMobileDevice ? 'mb-16' : 'mb-26'
                 }`}
@@ -93,15 +93,16 @@ function Auth() {
                 disabled={isDisabled}
               >
                 <span className='login-btn-text'>Login</span>
-              </button>
+              </Button>
               <br />
-              <button
+              <Button
+                variant='outline-primary'
                 className='register-btn pointer'
                 onClick={registerClicked}
                 disabled={isDisabled}
               >
                 <span className='register-btn-text'>Register</span>
-              </button>
+              </Button>
             </div>
           </Col>
         </Row>
