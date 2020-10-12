@@ -21,7 +21,7 @@ function Auth() {
 
   const loginClicked = () => {
     API.loginUser({ email, password })
-      .then((resp) => setToken('pg-token', resp.token))
+      .then((resp) => setToken('pg-token', resp.access))
       .catch((error) => console.log(error));
   };
 

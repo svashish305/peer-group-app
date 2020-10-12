@@ -1,10 +1,18 @@
+.username {
+  position: fixed;
+  top: 2rem;
+  color: #fff;
+  font-family: 'EncodeSansBold';
+  font-size: 1rem;
+}
+
 /* Position and sizing of burger button */
 .bm-burger-button {
   position: fixed;
-  width: 36px;
-  height: 30px;
-  right: 26px;
-  top: 26px;
+  width: 2.25rem;
+  height: 1.875rem;
+  right: 1.625rem;
+  top: 1.625rem;
 }
 
 /* Color/shape of burger icon bars */
@@ -19,19 +27,19 @@
 
 /* Position and sizing of clickable cross button */
 .bm-cross-button {
-  width: 36px !important;
-  height: 30px !important;
-  right: 24px !important;
-  top: 26px !important;
+  width: 2.25rem !important;
+  height: 1.875rem !important;
+  right: 1.5rem !important;
+  top: 1.625rem !important;
 }
 
 /* Color/shape of close button cross */
 .bm-cross {
   background: #fff;
-  width: 36px !important;
-  height: 6px !important;
-  right: -18px !important;
-  top: 8px !important;
+  width: 2.25rem !important;
+  height: 0.375rem !important;
+  right: -1.125rem !important;
+  top: 0.5rem !important;
 }
 
 /*
@@ -82,4 +90,30 @@ Note: Beware of modifying this element as it can break the animations - you shou
   background-color: var(--accent);
   color: var(--secondary);
   height: 4rem;
+}
+
+@media (min-width: 576px) {
+  .username {
+    font-size: 0.875rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .username {
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .username {
+    font-size: 1.25rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .username {
+    position: fixed;
+    top: 1.75rem;
+    font-size: 1.5rem;
+  }
 }
