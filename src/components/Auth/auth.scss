@@ -1,21 +1,20 @@
 .main-container {
-  margin: 0 2.40625rem;
+  margin: 0 1.46875rem;
 }
 
 .title {
-  margin: 3rem 0 2rem 0;
-  font-size: 0.875rem;
+  margin: 1.875rem 0 2rem 0;
+  font-size: 1.125rem;
   font-family: 'EncodeSansBold';
   color: var(--primary);
 }
 
-.logo {
-  height: 30vh;
-  width: 75vw;
+.auth-img {
+  width: -webkit-fill-available;
 }
 
 .auth-container {
-  background: #fff;
+  background: var(--secondary);
   border: 1px solid var(--primary);
   box-sizing: border-box;
   border-radius: 5px;
@@ -47,7 +46,7 @@
 .register-btn {
   width: -webkit-fill-available;
   height: 2.5rem;
-  background: #fff;
+  background: var(--secondary);
   border: 1px solid var(--primary);
   border-radius: 5px;
 }
@@ -55,7 +54,7 @@
 .login-btn-text {
   text-transform: uppercase;
   font-family: 'EncodeSansSemibold';
-  color: #fff;
+  color: var(--secondary);
 }
 
 .register-btn-text {
@@ -71,13 +70,13 @@
 
   .title {
     margin: 3rem 0 2rem 0;
-    font-size: 0.875rem;
+    font-size: 1.15rem;
     font-family: 'EncodeSansBold';
     color: var(--primary);
   }
 
   .auth-container {
-    background: #fff;
+    background: var(--secondary);
     border: 1px solid var(--primary);
     box-sizing: border-box;
     border-radius: 5px;
@@ -111,7 +110,7 @@
   .register-btn {
     width: -webkit-fill-available;
     height: 2.5rem;
-    background: #fff;
+    background: var(--secondary);
     border: 1px solid var(--primary);
     border-radius: 5px;
   }
@@ -120,7 +119,7 @@
     text-transform: uppercase;
     font-family: 'EncodeSansSemibold';
     font-size: 0.75rem;
-    color: #fff;
+    color: var(--secondary);
   }
 
   .register-btn-text {
@@ -138,22 +137,17 @@
 
   .title {
     margin: 3rem 0 2rem 0;
-    font-size: 3rem;
+    font-size: 1.5rem;
     font-family: 'EncodeSansBold';
     color: var(--primary);
   }
 
-  .logo {
-    height: 30vh;
-    width: 88vw;
-  }
-
   .auth-container {
-    background: #fff;
+    background: var(--secondary);
     border: 1px solid var(--primary);
     box-sizing: border-box;
     border-radius: 5px;
-    width: 40vw;
+    width: 25.75rem;
     margin: 0 auto;
   }
 
@@ -185,7 +179,7 @@
   .register-btn {
     width: -webkit-fill-available;
     height: 2.5rem;
-    background: #fff;
+    background: var(--secondary);
     border: 1px solid var(--primary);
     border-radius: 5px;
   }
@@ -194,7 +188,7 @@
     text-transform: uppercase;
     font-family: 'EncodeSansSemibold';
     font-size: 0.875rem;
-    color: #fff;
+    color: var(--secondary);
   }
 
   .register-btn-text {
@@ -212,34 +206,21 @@
 
   .title {
     margin: 3rem 0 3rem 0;
-    font-size: 3rem;
+    font-size: 2rem;
     font-family: 'EncodeSansBold';
     color: var(--primary);
   }
 
-  .custom-row {
-    display: flex;
-  }
-
-  .logo {
-    position: absolute;
-    width: 50vw;
-    height: 50vh;
-    left: 2rem;
-    top: 16.6875rem;
+  .auth-img {
+    width: 40vw;
   }
 
   .auth-container {
-    background: #fff;
+    background: var(--secondary);
     border: 1px solid var(--primary);
     box-sizing: border-box;
     border-radius: 5px;
-
-    position: absolute;
     width: 25.75rem;
-    height: 25.125rem;
-    left: calc(50% - 25.75rem / 2 + 17rem);
-    top: calc(50% - 25.125rem / 2 + 2.3125rem);
   }
 
   .auth-input {
@@ -270,7 +251,7 @@
   .register-btn {
     width: -webkit-fill-available;
     height: 3.875rem;
-    background: #fff;
+    background: var(--secondary);
     border: 1px solid var(--primary);
     border-radius: 5px;
   }
@@ -279,7 +260,7 @@
     text-transform: uppercase;
     font-family: 'EncodeSansSemibold';
     font-size: 1rem;
-    color: #fff;
+    color: var(--secondary);
   }
 
   .register-btn-text {
@@ -302,29 +283,17 @@
     color: var(--primary);
   }
 
-  .custom-row {
-    display: flex;
-  }
-
-  .logo {
-    position: absolute;
-    width: 50vw;
-    height: 50vh;
-    left: 8.5rem;
-    top: 16.6875rem;
+  .auth-img {
+    width: -webkit-fill-available;
   }
 
   .auth-container {
-    background: #fff;
+    background: var(--secondary);
     border: 1px solid var(--primary);
     box-sizing: border-box;
     border-radius: 5px;
-
-    position: absolute;
     width: 25.75rem;
-    height: 25.125rem;
-    left: calc(50% - 25.75rem / 2 + 26.3125rem);
-    top: calc(50% - 25.125rem / 2 + 2.3125rem);
+    margin-top: 5rem;
   }
 
   .auth-input {
@@ -355,7 +324,7 @@
   .register-btn {
     width: -webkit-fill-available;
     height: 3.875rem;
-    background: #fff;
+    background: var(--secondary);
     border: 1px solid var(--primary);
     border-radius: 5px;
   }
@@ -364,7 +333,7 @@
     text-transform: uppercase;
     font-family: 'EncodeSansSemibold';
     font-size: 1.125rem;
-    color: #fff;
+    color: var(--secondary);
   }
 
   .register-btn-text {

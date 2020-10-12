@@ -1,7 +1,7 @@
 .username {
   position: fixed;
   top: 2rem;
-  color: #fff;
+  color: var(--secondary);
   font-family: 'EncodeSansBold';
   font-size: 1rem;
 }
@@ -17,12 +17,12 @@
 
 /* Color/shape of burger icon bars */
 .bm-burger-bars {
-  background: #fff;
+  background: var(--secondary);
 }
 
 /* Color/shape of burger icon bars on hover*/
 .bm-burger-bars-hover {
-  background: #fff;
+  background: var(--secondary);
 }
 
 /* Position and sizing of clickable cross button */
@@ -35,7 +35,7 @@
 
 /* Color/shape of close button cross */
 .bm-cross {
-  background: #fff;
+  background: var(--secondary);
   width: 2.25rem !important;
   height: 0.375rem !important;
   right: -1.125rem !important;
