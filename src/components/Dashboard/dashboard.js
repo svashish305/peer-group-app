@@ -57,6 +57,7 @@ function Dashboard(props) {
 
   const editGroup = (groupId) => {
     // redirect to group details component
+
   }
 
   const deleteGroup = (groupId) => {
@@ -77,7 +78,7 @@ function Dashboard(props) {
           <Button onClick={() => createClicked()}>+ Add</Button> 
         </div>
 
-        <div className={`group-list ${isTabletOrMobile || isTabletOrMobileDevice ? 'mt-42' : null}`}>
+        <div className={`${isTabletOrMobile || isTabletOrMobileDevice ? 'mt-42' : 'mt-42'}`}>
           {groups && groups.length && 
           groups.filter(g => {
             if(search == null) {
@@ -89,7 +90,7 @@ function Dashboard(props) {
           .map((group) => {
             return (
               <div className='group-row'>
-                <div key={group && group.id} className={`group-list-item ${isTabletOrMobile || isTabletOrMobileDevice ? 'mb-20' : null}`}>
+                <div key={group && group.id} className={`group-list-item ${isTabletOrMobile || isTabletOrMobileDevice ? 'mb-20' : 'mb-32'}`}>
                   {group.name}
                 </div>
                 <Image className='edit-icon' src='/assets/images/edit.svg' alt='edit' onClick={() => editGroup(group.id)} fluid />
