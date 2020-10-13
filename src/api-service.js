@@ -61,7 +61,7 @@ export class API {
   }
 
   static deleteUser(user_id, token) {
-    return fetch(`${process.env.REACT_APP_API_URL}/api/jobs/${user_id}/`, {
+    return fetch(`${process.env.REACT_APP_API_URL}/api/users/${user_id}/`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -90,6 +90,17 @@ export class API {
     }).then(resp => resp.json())
   }
 
+  static createGroup(body, token) {
+    return fetch(`${process.env.REACT_APP_API_URL}/api/groups/`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(body),
+    }).then(resp => resp.json())
+  }
+
   static updateGroup(group_id, body, token) {
     return fetch(`${process.env.REACT_APP_API_URL}/api/groups/${group_id}`, {
       method: "PATCH",
@@ -102,7 +113,7 @@ export class API {
   }
 
   static deleteGroup(group_id, token) {
-    return fetch(`${process.env.REACT_APP_API_URL}/api/jobs/${group_id}/`, {
+    return fetch(`${process.env.REACT_APP_API_URL}/api/groups/${group_id}/`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",

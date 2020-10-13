@@ -39,5 +39,45 @@
 .group-list {
 }
 
+.group-row {
+  display: flex;
+  flex-direction: row;
+}
+
 .group-list-item {
+  font-family: 'EncodeSansRegular';
+  font-size: 0.875rem;
+  color: var(--primary);
+  border: 1px solid var(--primary);
+  border-radius: 5px;
+  width: 11.625rem;
+}
+
+.edit-icon {
+  width: 1.5rem;
+  height: 1.5rem !important;
+  margin: 0 0.9375rem 0 1.5rem;
+}
+
+.delete-icon {
+  width: 1.5rem;
+  height: 1.5rem !important;
+}
+
+.new-group-input {
+  font-family: 'EncodeSansLight';
+  font-size: 0.875rem;
+}
+
+.fa-plus {
+  color: var(--primary);
+  width: 1.5rem !important;
+  height: 1.5rem;
+  margin: 0 0.9375rem 0 1.5rem;
+}
+
+.fa-times {
+  color: var(--primary);
+  width: 1.5rem !important;
+  height: 1.5rem;
 }
