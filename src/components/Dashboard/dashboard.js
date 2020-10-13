@@ -93,14 +93,14 @@ function Dashboard(props) {
                 <div key={group && group.id} className={`group-list-item ${isTabletOrMobile || isTabletOrMobileDevice ? 'mb-20' : 'mb-32'}`}>
                   {group.name}
                 </div>
-                <Image className='edit-icon' src='/assets/images/edit.svg' alt='edit' onClick={() => editGroup(group.id)} fluid />
-                <Image className='delete-icon' src='/assets/images/delete.svg' alt='delete' onClick={() => deleteGroup(group.id)} fluid />
+                <Image className='edit-icon pointer' src='/assets/images/edit.svg' alt='edit' onClick={() => editGroup(group.id)} fluid />
+                <Image className='delete-icon pointer' src='/assets/images/delete.svg' alt='delete' onClick={() => deleteGroup(group.id)} fluid />
               </div>
             ) 
           })}
           {isCreateButtonClicked ? 
           (<div className='group-row'>
-            <div className={`group-list-item ${isTabletOrMobile || isTabletOrMobileDevice ? 'mb-20' : null}`}>
+            <div className={`group-list-item ${isTabletOrMobile || isTabletOrMobileDevice ? 'mb-20' : 'mb-32'}`}>
               <input autoFocus className='new-group-input' placeholder='Enter Group Name' value={newGroupName} onChange={(evt) => setNewGroupName(evt.target.value)} />
             </div>
             <FontAwesomeIcon icon={faPlus} className='pointer' onClick={() => addGroup(newGroupName)} />

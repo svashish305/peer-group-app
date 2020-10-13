@@ -32,7 +32,7 @@ function StudentDashboard(props) {
 
   return (
     <div className='dashboard-container'>
-      
+      Hello Student this is your dashboard!
     </div>
   )
 }
