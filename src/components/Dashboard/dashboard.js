@@ -61,8 +61,6 @@ function Dashboard(props) {
   const editGroup = (groupId) => {
     setEditClicked(true)
     setGroupIdToEdit(groupId)
-    console.log('edit clicked for group ', groupId)
-    // set editClicked back to false after successful edit
   }
 
   const deleteGroup = (groupId) => {
@@ -78,7 +76,7 @@ function Dashboard(props) {
     <React.Fragment>
       {props.isAdmin ? (
         (editClicked ? (
-          <EditGroup loggedInUser={props.loggedInUser} editClicked={editClicked} groupId={groupIdToEdit} onChange={setEditClicked} />
+          <EditGroup loggedInUser={props.loggedInUser} editClicked={editClicked} groups={groups} groupId={groupIdToEdit} onEditClickedChange={setEditClicked} onGroupsChange={setGroups} />
         ) : (
           <div className='dashboard-container'>
           <div className='search-container'>
@@ -88,6 +86,7 @@ function Dashboard(props) {
 
           <div className={`${isTabletOrMobile || isTabletOrMobileDevice ? 'mt-42' : 'mt-42'}`}>
             {groups && groups.length && 
+            // eslint-disable-next-line
             groups.filter(g => {
               if(search == null) {
                 return g

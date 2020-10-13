@@ -40,7 +40,7 @@ export class API {
   }
 
   static getUserById(user_id, token) {
-    return fetch(`${process.env.REACT_APP_API_URL}/api/users/${user_id}`, {
+    return fetch(`${process.env.REACT_APP_API_URL}/api/users/${user_id}/`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -50,7 +50,7 @@ export class API {
   }
 
   static updateUser(user_id, body, token) {
-    return fetch(`${process.env.REACT_APP_API_URL}/api/groups/${user_id}`, {
+    return fetch(`${process.env.REACT_APP_API_URL}/api/groups/${user_id}/`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -81,7 +81,7 @@ export class API {
   }
 
   static getGroupById(group_id, token) {
-    return fetch(`${process.env.REACT_APP_API_URL}/api/groups/${group_id}`, {
+    return fetch(`${process.env.REACT_APP_API_URL}/api/groups/${group_id}/`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -102,7 +102,7 @@ export class API {
   }
 
   static updateGroup(group_id, body, token) {
-    return fetch(`${process.env.REACT_APP_API_URL}/api/groups/${group_id}`, {
+    return fetch(`${process.env.REACT_APP_API_URL}/api/groups/${group_id}/`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
