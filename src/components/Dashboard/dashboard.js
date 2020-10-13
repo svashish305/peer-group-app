@@ -6,6 +6,7 @@ import { Image, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faTimes } from '@fortawesome/free-solid-svg-icons';
 import './dashboard.scss';
+import EditGroup from '../Edit Group/edit-group';
 import StudentDashboard from './student-dashboard';
 
 function Dashboard(props) {
@@ -34,6 +35,8 @@ function Dashboard(props) {
   const [isCreateButtonClicked, setIsCreateButtonClicked] = useState(false);
   const [newGroupName, setNewGroupName] = useState('');
   const [search, setSearch] = useState(null)
+  const [editClicked, setEditClicked] = useState(false);
+  const [groupIdToEdit, setGroupIdToEdit] = useState(null);
 
   const filterGroups = (textInput) => {
     setSearch(textInput) 
@@ -56,8 +59,10 @@ function Dashboard(props) {
   }
 
   const editGroup = (groupId) => {
-    // redirect to group details component
-
+    setEditClicked(true)
+    setGroupIdToEdit(groupId)
+    console.log('edit clicked for group ', groupId)
+    // set editClicked back to false after successful edit
   }
 
   const deleteGroup = (groupId) => {
@@ -72,42 +77,46 @@ function Dashboard(props) {
   return (
     <React.Fragment>
       {props.isAdmin ? (
-      <div className='dashboard-container'>
-        <div className='search-container'>
-          <input placeholder="Search Groups" className='search-input' onChange={(evt) => filterGroups(evt.target.value)} />
-          <Button onClick={() => createClicked()}>+ Add</Button> 
-        </div>
+        (editClicked ? (
+          <EditGroup loggedInUser={props.loggedInUser} editClicked={editClicked} groupId={groupIdToEdit} onChange={setEditClicked} />
+        ) : (
+          <div className='dashboard-container'>
+          <div className='search-container'>
+            <input placeholder="Search Groups" className='search-input' onChange={(evt) => filterGroups(evt.target.value)} />
+            <Button onClick={() => createClicked()}>+ Add</Button> 
+          </div>
 
-        <div className={`${isTabletOrMobile || isTabletOrMobileDevice ? 'mt-42' : 'mt-42'}`}>
-          {groups && groups.length && 
-          groups.filter(g => {
-            if(search == null) {
-              return g
-            } else if (g.name.toLowerCase().includes(search.toLowerCase())) {
-              return g
-            }
-          })
-          .map((group) => {
-            return (
-              <div className='group-row'>
-                <div key={group && group.id} className={`group-list-item ${isTabletOrMobile || isTabletOrMobileDevice ? 'mb-20' : 'mb-32'}`}>
-                  {group.name}
+          <div className={`${isTabletOrMobile || isTabletOrMobileDevice ? 'mt-42' : 'mt-42'}`}>
+            {groups && groups.length && 
+            groups.filter(g => {
+              if(search == null) {
+                return g
+              } else if (g.name.toLowerCase().includes(search.toLowerCase())) {
+                return g
+              }
+            })
+            .map((group) => {
+              return (
+                <div className='group-row'>
+                  <div key={group && group.id} className={`group-list-item ${isTabletOrMobile || isTabletOrMobileDevice ? 'mb-20' : 'mb-32'}`}>
+                    {group.name}
+                  </div>
+                  <Image className='edit-icon pointer' src='/assets/images/edit.svg' alt='edit' onClick={() => editGroup(group.id)} fluid />
+                  <Image className='delete-icon pointer' src='/assets/images/delete.svg' alt='delete' onClick={() => deleteGroup(group.id)} fluid />
                 </div>
-                <Image className='edit-icon pointer' src='/assets/images/edit.svg' alt='edit' onClick={() => editGroup(group.id)} fluid />
-                <Image className='delete-icon pointer' src='/assets/images/delete.svg' alt='delete' onClick={() => deleteGroup(group.id)} fluid />
+              ) 
+            })}
+            {isCreateButtonClicked ? 
+            (<div className='group-row'>
+              <div className={`group-list-item ${isTabletOrMobile || isTabletOrMobileDevice ? 'mb-20' : 'mb-32'}`}>
+                <input autoFocus className='new-group-input' placeholder='Enter Group Name' value={newGroupName} onChange={(evt) => setNewGroupName(evt.target.value)} />
               </div>
-            ) 
-          })}
-          {isCreateButtonClicked ? 
-          (<div className='group-row'>
-            <div className={`group-list-item ${isTabletOrMobile || isTabletOrMobileDevice ? 'mb-20' : 'mb-32'}`}>
-              <input autoFocus className='new-group-input' placeholder='Enter Group Name' value={newGroupName} onChange={(evt) => setNewGroupName(evt.target.value)} />
-            </div>
-            <FontAwesomeIcon icon={faPlus} className='pointer' onClick={() => addGroup(newGroupName)} />
-            <FontAwesomeIcon icon={faTimes} className='pointer' onClick={() => setIsCreateButtonClicked(false)} />
-          </div>) : null}
+              <FontAwesomeIcon icon={faPlus} className='pointer' onClick={() => addGroup(newGroupName)} />
+              <FontAwesomeIcon icon={faTimes} className='pointer' onClick={() => setIsCreateButtonClicked(false)} />
+            </div>) : null}
+          </div>
         </div>
-      </div>
+        ))
     ) : (
       <StudentDashboard loggedInUser={props.loggedInUser} />
     )}  
