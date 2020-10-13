@@ -67,6 +67,11 @@
   margin-left: 1rem;
 }
 
+footer {
+  position: absolute;
+  bottom: 2rem;
+}
+
 .action-btns {
   display: grid;
   grid-template-rows: 1fr 1fr;
@@ -81,4 +86,41 @@
   font-family: 'EncodeSansMedium';
   font-size: 0.875rem !important;
   padding: 0 !important;
+}
+
+@media (min-width: 768px) {
+  .action-btns {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+@media (min-width: 992px) {
+  .edit-group-container {
+    margin: 2rem 2.5rem 0 2.5rem;
+  }
+
+  .name-col {
+    margin-right: 4vw;
+  }
+
+  .action-btns {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+@media (min-width: 1200px) {
+  .edit-group-container {
+    margin: 2rem 10.25rem 0 10.25rem;
+  }
+
+  .name-col {
+    margin-right: 2.5vw;
+  }
+
+  .action-btns {
+    display: flex;
+    flex-direction: row;
+  }
 }

@@ -104,11 +104,13 @@ function EditGroup(props) {
               )
             })}
           </Container>) : null}
-          <div className='action-btns'>
-            <Button className='custom-sized-btn' onClick={() => setEditClicked(false)}>Go Back</Button>
-            <Button className='custom-sized-btn'>Schedule Meeting</Button>
-            <Button className='custom-sized-btn'>Add Student</Button>
-            <Button className='custom-sized-btn'>View Meetings</Button>
+          <div className='flex-center'>
+            <footer className='action-btns'>
+              <Button className='custom-sized-btn' onClick={() => setEditClicked(false)}>Go Back</Button>
+              <Button className='custom-sized-btn'>Schedule Meeting</Button>
+              <Button className='custom-sized-btn'>Add Student</Button>
+              <Button className='custom-sized-btn'>View Meetings</Button>
+            </footer>
           </div>
         </div>
       ) : null}
