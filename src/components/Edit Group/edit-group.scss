@@ -1,29 +1,84 @@
-.main-container {
-  margin: 0 1.25rem;
+.edit-group-container {
+  margin: 2rem 1.25rem 0 1.25rem;
 }
 
 .group-name-input {
-  margin-top: 2rem;
-  float: left;
   overflow: hidden;
   box-sizing: border-box;
   border: solid 1px transparent;
   border-radius: 5px;
   text-overflow: ellipsis;
   width: 6.875rem;
+  padding-left: 0;
   font-family: 'EncodeSansSemibold';
   font-size: 1.125rem;
   color: var(--primary);
 }
 
-.members-text {
+.heading-text {
   color: var(--primary);
   font-family: 'EncodeSansMedium';
   font-size: 1.125rem;
 }
 
-.back-btn {
-  position: absolute;
-  bottom: 6rem;
-  left: 2rem;
+.name-heading-col {
+  width: 6.5625rem;
+}
+
+.user-list-item {
+  display: flex;
+  flex-direction: row;
+  height: 1.875rem;
+}
+
+.name-col {
+  margin-right: 5vw;
+}
+
+.user-name {
+  font-family: 'EncodeSansRegular';
+  font-size: 0.875rem;
+  width: 6.5625rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-transform: capitalize;
+  color: var(--primary);
+  border: 1px solid var(--primary);
+  border-radius: 5px;
+}
+
+.user-availability {
+  font-family: 'EncodeSansRegular';
+  font-size: 0.875rem;
+  width: 4.875rem;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--readOnlyColor);
+}
+
+.edit-user-icon {
+  width: 1.5rem;
+  height: 1.5rem !important;
+}
+
+.delete-user-icon {
+  width: 1.5rem;
+  height: 1.5rem !important;
+  margin-left: 1rem;
+}
+
+.action-btns {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-row-gap: 1.4375rem;
+  grid-column-gap: 1.4375rem;
+  grid-template-columns: 1fr 1fr;
+}
+
+.custom-sized-btn {
+  width: 8.125rem;
+  height: 2.5rem;
+  font-family: 'EncodeSansMedium';
+  font-size: 0.875rem !important;
+  padding: 0 !important;
 }
