@@ -10,30 +10,22 @@
   align-items: center;
 }
 
-.group-typeahead {
+.search-input {
   width: 11.5rem !important;
+  height: 2.375rem;
+  padding-left: 0.75rem;
+  background-color: var(--inputColor);
+  border: none;
+  border-radius: 5px;
+  background-image: url(/assets/images/search.svg);
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: 2.25rem 1.125rem;
+}
 
-  .form-control {
-    background-color: var(--inputColor);
-    border: none;
-  }
-
-  input {
-    background-image: url(/assets/images/search.svg);
-    background-repeat: no-repeat;
-    background-position: right center;
-    background-size: 2.25rem 1.125rem;
-  }
-
-  input::placeholder {
-    font-family: 'EncodeSansLight';
-    font-size: 0.875rem;
-  }
-
-  .dropdown-item:hover,
-  .dropdown-item:focus {
-    color: #16181b !important;
-  }
+.search-input::placeholder {
+  font-family: 'EncodeSansLight';
+  font-size: 0.875rem;
 }
 
 .group-list {

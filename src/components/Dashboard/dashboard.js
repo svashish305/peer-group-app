@@ -2,12 +2,11 @@ import React, {useState, useEffect} from 'react';
 import { API } from '../../api-service';
 import { useCookies } from 'react-cookie';
 import { useMediaQuery } from 'react-responsive';
-import { Container, Row, Col, Image, Button } from 'react-bootstrap';
+import { Image, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faTimes } from '@fortawesome/free-solid-svg-icons';
-import { Typeahead } from 'react-bootstrap-typeahead';
-import 'react-bootstrap-typeahead/css/Typeahead.scss';
 import './dashboard.scss';
+import StudentDashboard from './student-dashboard';
 
 function Dashboard(props) {
   const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' });
@@ -18,9 +17,6 @@ function Dashboard(props) {
   const [token] = useCookies(['pg-token']);
 
   const [groups, setGroups] = useState([]);
-  const [selectedTypeaheadGroup, setSelectedTypeaheadGroup] = useState([]);
-  const [groupOfStudent, setGroupOfStudent] = useState(null);
-  const [usersInGroup, setUsersInGroup] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
@@ -28,26 +24,23 @@ function Dashboard(props) {
         const groups = await API.getAllGroups(token['pg-token'])
         .catch(err => console.log(err))
         setGroups(groups)
-      } else {
-        const groupOfStudent = await API.getGroupOfUser(props.loggedInUser.id, token['pg-token'])
-        .catch(err => console.log(err))
-        setGroupOfStudent(groupOfStudent)
-
-        const usersInGroup = await API.getUsersInGroup(groupOfStudent.id, token['pg-token'])
-        .catch(err => console.log(err))
-        setUsersInGroup(usersInGroup)
-      }
+      } 
     }
     fetchData()
   }, 
   // eslint-disable-next-line
-  [groups])
+  [])
 
   const [isCreateButtonClicked, setIsCreateButtonClicked] = useState(false);
   const [newGroupName, setNewGroupName] = useState('');
+  const [search, setSearch] = useState(null)
+
+  const filterGroups = (textInput) => {
+    setSearch(textInput) 
+  }
 
   const createClicked = () => {
-    setIsCreateButtonClicked(true);
+    setIsCreateButtonClicked(true)
   }
 
   const addGroup = (newGroupName) => {
@@ -57,7 +50,7 @@ function Dashboard(props) {
       setGroups(newGroups)
     })
     .catch(err => console.log(err))
-    // after successful addition
+
     setNewGroupName('')
     setIsCreateButtonClicked(false)
   }
@@ -69,7 +62,8 @@ function Dashboard(props) {
   const deleteGroup = (groupId) => {
     API.deleteGroup(groupId, token['pg-token'])
     .then(() => {
-      console.log('Group deleted successfully')
+      const newGroups = groups.filter(g => g.id !== groupId)
+      setGroups(newGroups)
     })
     .catch(err => console.log(err))
   }
@@ -79,20 +73,20 @@ function Dashboard(props) {
       {props.isAdmin ? (
       <div className='dashboard-container'>
         <div className='search-container'>
-          <Typeahead
-            id="basic-group-typeahead-single"
-            className='group-typeahead'
-            labelKey="name"
-            onChange={setSelectedTypeaheadGroup}
-            options={groups}
-            placeholder="Search Groups"
-            selected={selectedTypeaheadGroup}
-          />
-          <Button onClick={() => createClicked()}>Add +</Button> 
+          <input placeholder="Search Groups" className='search-input' onChange={(evt) => filterGroups(evt.target.value)} />
+          <Button onClick={() => createClicked()}>+ Add</Button> 
         </div>
 
         <div className={`group-list ${isTabletOrMobile || isTabletOrMobileDevice ? 'mt-42' : null}`}>
-          {groups && groups.length && groups.map((group) => {
+          {groups && groups.length && 
+          groups.filter(g => {
+            if(search == null) {
+              return g
+            } else if (g.name.toLowerCase().includes(search.toLowerCase())) {
+              return g
+            }
+          })
+          .map((group) => {
             return (
               <div className='group-row'>
                 <div key={group && group.id} className={`group-list-item ${isTabletOrMobile || isTabletOrMobileDevice ? 'mb-20' : null}`}>
@@ -114,9 +108,7 @@ function Dashboard(props) {
         </div>
       </div>
     ) : (
-      <div className='dashboard-container'>
-        
-      </div>
+      <StudentDashboard loggedInUser={props.loggedInUser} />
     )}  
     </React.Fragment>
   )

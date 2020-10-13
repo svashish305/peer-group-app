@@ -9,18 +9,20 @@ function Sidebar(props) {
 
   const logoutUser = () => {
     deleteToken(['pg-token']);
+    props.loggedInUser = null
   }
 
   return (
     <div id='outer-container'>
+      {props.loggedInUser ? (
       <Menu right disableAutoFocus outerContainerId={'outer-container'}>
         <label className='username' onClick={(e) => e.preventDefault()}>
-          Hi {(props.loggedInUser.name && props.loggedInUser.name!== 'New Student') ? props.loggedInUser.name : props.loggedInUser.email.split('@')[0]}!
+          Hi {(props.loggedInUser.name && props.loggedInUser.name!== 'New Student') ? props.loggedInUser.name : props.loggedInUser.email && props.loggedInUser.email.split('@')[0]}!
         </label>
         <a id='logout' className='menu-item' href='.' onClick={() => logoutUser()}>
           Log Out
         </a>
-      </Menu>
+      </Menu>) : null}
     </div>
   );
 }
