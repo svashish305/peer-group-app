@@ -5,6 +5,7 @@ import { Container, Row, Col, Image, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { toast } from 'react-toastify';
+import EditStudent from '../Edit Student/edit-student';
 import './edit-group.scss';
 
 function EditGroup(props) {
@@ -100,7 +101,11 @@ function EditGroup(props) {
   return (
     <React.Fragment>
       {props.editClicked ? (
-        <div className='edit-group-container'>
+        (editUserClicked ? (
+          <EditStudent loggedInUser={props.loggedInUser} editUserClicked={editUserClicked} usersInGroup={usersInGroup} 
+            userId={userIdToEdit} onEditUserClickedChange={setEditUserClicked} onUsersInGroupChange={setUsersInGroup} />
+        ) : (
+          <div className='edit-group-container'>
           {groupToEdit ? (
           <Container>
             <input className='group-name-input float-left' defaultValue={groupToEdit.name} onClick={evt => evt.target.select()}
@@ -154,6 +159,7 @@ function EditGroup(props) {
             </footer>
           </div>
         </div>
+        ))
       ) : null}
     </React.Fragment>
   )

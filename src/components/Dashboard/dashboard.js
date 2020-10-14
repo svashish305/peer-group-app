@@ -76,7 +76,8 @@ function Dashboard(props) {
     <React.Fragment>
       {props.isAdmin ? (
         (editClicked ? (
-          <EditGroup loggedInUser={props.loggedInUser} editClicked={editClicked} groups={groups} groupId={groupIdToEdit} onEditClickedChange={setEditClicked} onGroupsChange={setGroups} />
+          <EditGroup loggedInUser={props.loggedInUser} editClicked={editClicked} groups={groups}
+           groupId={groupIdToEdit} onEditClickedChange={setEditClicked} onGroupsChange={setGroups} />
         ) : (
           <div className='dashboard-container'>
           <div className='search-container'>
