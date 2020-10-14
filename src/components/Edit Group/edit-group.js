@@ -2,8 +2,9 @@ import React, {useState, useEffect} from 'react';
 import { API } from '../../api-service';
 import { useCookies } from 'react-cookie';
 import { Container, Row, Col, Image, Button } from 'react-bootstrap';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { toast } from 'react-toastify';
 import './edit-group.scss';
 
 function EditGroup(props) {
@@ -14,7 +15,7 @@ function EditGroup(props) {
   const [usersInGroup, setUsersInGroup] = useState([]);
   const [editUserClicked, setEditUserClicked] = useState(false);
   const [userIdToEdit, setUserIdToEdit] = useState(null);
-  const [newUserName, setNewUserName] = useState('');
+  const [newUserEmail, setNewUserEmail] = useState('');
   const [isCreateUserButtonClicked, setIsCreateUserButtonClicked] = useState(false);
 
   useEffect(() => {
@@ -56,15 +57,28 @@ function EditGroup(props) {
     setIsCreateUserButtonClicked(true)
   }
 
-  const addUser = (newUserName) => {
-    API.registerUser({name: newUserName, email: `${newUserName}@pg.com`, password: '123456', is_student: true, group_id: props.groupId}, token['pg-token'])
-    .then(newUser => {
-      const newUsersInGroup = [...usersInGroup, newUser];
-      setUsersInGroup(newUsersInGroup)
-    })
-    .catch(err => console.log('failed to create user because', err))
+  const validateEmail = (email) => {
+    let isValid;
+    if ((!email) || (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(email))) {
+      isValid = false;
+    } else {
+      isValid = true;
+    }
+    return isValid;  
+  }
 
-    setNewUserName('')
+  const addUser = (newUserEmail) => {
+    if(validateEmail(newUserEmail)) {
+      API.updateOrCreateUser({email: newUserEmail, name: newUserEmail.split('@')[0], password: '123456', is_student: true, group_id: props.groupId}, token['pg-token'])
+      .then(newUser => {
+        const newUsersInGroup = [...usersInGroup, newUser];
+        setUsersInGroup(newUsersInGroup)
+      })
+      .catch(err => console.log('failed to create user because', err))
+    } else {
+      toast.error('Invalid Email! Try Again')
+    }
+    setNewUserEmail('')
     setIsCreateUserButtonClicked(false)
   }
 
@@ -123,10 +137,10 @@ function EditGroup(props) {
             {isCreateUserButtonClicked ? 
             (<Row>
               <Col className='user-list-item mb-20 p-0'>
-                <input autoFocus className='new-user-input' placeholder='Enter User Name' value={newUserName} onChange={(evt) => setNewUserName(evt.target.value)} />
+                <input autoFocus className='new-user-input' placeholder='Enter User Email' type='email' value={newUserEmail} onChange={(evt) => setNewUserEmail(evt.target.value)} />
               </Col>
               <div className='p-0'>
-                <FontAwesomeIcon icon={faPlus} className='pointer' onClick={() => addUser(newUserName)} />
+                <FontAwesomeIcon icon={faPlus} className='pointer' onClick={() => addUser(newUserEmail)} />
                 <FontAwesomeIcon icon={faTimes} className='pointer' onClick={() => setIsCreateUserButtonClicked(false)} />
               </div>
             </Row>) : null}

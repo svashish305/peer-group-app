@@ -4,6 +4,8 @@ import {useFetch} from './hooks/useFetch';
 import Sidebar from './components/Sidebar/sidebar';
 import Dashboard from './components/Dashboard/dashboard';
 import './App.scss';
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   // eslint-disable-next-line
@@ -22,6 +24,7 @@ function App() {
       <header className='App-header'>Peer Group App</header>
       <Sidebar loggedInUser={loggedInUser} />
       <Dashboard loggedInUser={loggedInUser} isAdmin={isAdmin} />
+      <ToastContainer />
     </div>
   );
 }

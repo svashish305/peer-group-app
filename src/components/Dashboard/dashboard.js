@@ -3,7 +3,7 @@ import { API } from '../../api-service';
 import { useCookies } from 'react-cookie';
 import { useMediaQuery } from 'react-responsive';
 import { Image, Button } from 'react-bootstrap';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faTimes } from '@fortawesome/free-solid-svg-icons';
 import './dashboard.scss';
 import EditGroup from '../Edit Group/edit-group';
