@@ -73,14 +73,17 @@ function EditGroup(props) {
     <React.Fragment>
       {props.editClicked ? (
         <div className='edit-group-container'>
-          {groupToEdit ? <input className='group-name-input float-left' defaultValue={groupToEdit.name} onClick={evt => evt.target.select()}
-          onKeyDown={evt => evt.key === 'Enter' && evt.preventDefault() && updateGroupName(evt.target.value)}
-          onBlur={(evt) => updateGroupName(evt.target.value)} /> : null}
+          {groupToEdit ? (
+          <Container>
+            <input className='group-name-input float-left' defaultValue={groupToEdit.name} onClick={evt => evt.target.select()}
+            onKeyDown={evt => evt.key === 'Enter' && evt.preventDefault() && updateGroupName(evt.target.value)}
+            onBlur={(evt) => updateGroupName(evt.target.value)} />
+          </Container>) : null}
           <br />
-          {usersInGroup ? (<Container className='mt-20'>
-            <Row>
-              <label className='heading-text float-left'>Members :</label><br />
-            </Row>
+          {usersInGroup ? (
+          <Container className='mt-20'>
+            <label className='heading-text float-left'>Members :</label>
+            <br /><br />
             <div className='heading-text float-left'>Name</div>
             <div className='heading-text'>Availability</div>
             {usersInGroup.length && usersInGroup.map((user) => {
