@@ -49,9 +49,9 @@ export class API {
     }).then(resp => resp.json())
   }
 
-  static updateUser(user_id, body, token) {
-    return fetch(`${process.env.REACT_APP_API_URL}/api/groups/${user_id}/`, {
-      method: "PATCH",
+  static updateOrCreateUser(body, token) {
+    return fetch(`${process.env.REACT_APP_API_URL}/api/update_or_create_user/`, {
+      method: "POST",
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,

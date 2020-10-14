@@ -31,6 +31,21 @@
   height: 1.875rem;
 }
 
+.new-user-input {
+  color: var(--primary);
+  border: 1px solid var(--primary);
+  border-radius: 5px;
+  font-family: 'EncodeSansRegular';
+  font-size: 0.875rem;
+  outline: none;
+  width: 6.5625rem;
+}
+
+.new-user-input::placeholder {
+  font-family: 'EncodeSansLight';
+  font-size: 0.75rem;
+}
+
 .name-col {
   margin-right: 5vw;
 }

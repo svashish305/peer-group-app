@@ -1,15 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import { API } from '../../api-service';
 import { useCookies } from 'react-cookie';
-import { useMediaQuery } from 'react-responsive';
 import { Container, Row, Col, Image, Button } from 'react-bootstrap';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus, faTimes } from '@fortawesome/free-solid-svg-icons';
 import './edit-group.scss';
 
 function EditGroup(props) {
-  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' });
-  const isTabletOrMobileDevice = useMediaQuery({
-    query: '(max-device-width: 1224px)',
-  });
 
   const [token] = useCookies(['pg-token']);
 
@@ -17,7 +14,8 @@ function EditGroup(props) {
   const [usersInGroup, setUsersInGroup] = useState([]);
   const [editUserClicked, setEditUserClicked] = useState(false);
   const [userIdToEdit, setUserIdToEdit] = useState(null);
-
+  const [newUserName, setNewUserName] = useState('');
+  const [isCreateUserButtonClicked, setIsCreateUserButtonClicked] = useState(false);
 
   useEffect(() => {
     async function fetchData() {
@@ -52,6 +50,22 @@ function EditGroup(props) {
       })
       .catch(err => console.log(err))
     }
+  }
+
+  const createUserClicked = () => {
+    setIsCreateUserButtonClicked(true)
+  }
+
+  const addUser = (newUserName) => {
+    API.registerUser({name: newUserName, email: `${newUserName}@pg.com`, password: '123456', is_student: true, group_id: props.groupId}, token['pg-token'])
+    .then(newUser => {
+      const newUsersInGroup = [...usersInGroup, newUser];
+      setUsersInGroup(newUsersInGroup)
+    })
+    .catch(err => console.log('failed to create user because', err))
+
+    setNewUserName('')
+    setIsCreateUserButtonClicked(false)
   }
 
   const editUser = (userId) => {
@@ -98,7 +112,7 @@ function EditGroup(props) {
                     <Col className='p-0'>
                       <div className='user-availability'>{user.availability}</div>
                     </Col>
-                    <div className='p-0 user-actions'>
+                    <div className='p-0'>
                       <Image className='edit-user-icon pointer' src='/assets/images/edit.svg' alt='edit' onClick={() => editUser(user.id)} fluid />
                       <Image className='delete-user-icon pointer' src='/assets/images/delete.svg' alt='delete' onClick={() => deleteUser(user.id)} fluid />
                     </div>
@@ -106,12 +120,22 @@ function EditGroup(props) {
                 </div>
               )
             })}
+            {isCreateUserButtonClicked ? 
+            (<Row>
+              <Col className='user-list-item mb-20 p-0'>
+                <input autoFocus className='new-user-input' placeholder='Enter User Name' value={newUserName} onChange={(evt) => setNewUserName(evt.target.value)} />
+              </Col>
+              <div className='p-0'>
+                <FontAwesomeIcon icon={faPlus} className='pointer' onClick={() => addUser(newUserName)} />
+                <FontAwesomeIcon icon={faTimes} className='pointer' onClick={() => setIsCreateUserButtonClicked(false)} />
+              </div>
+            </Row>) : null}
           </Container>) : null}
           <div className='flex-center'>
             <footer className='action-btns'>
               <Button className='custom-sized-btn' onClick={() => setEditClicked(false)}>Go Back</Button>
               <Button className='custom-sized-btn'>Schedule Meeting</Button>
-              <Button className='custom-sized-btn'>Add Student</Button>
+              <Button className='custom-sized-btn' onClick={() => createUserClicked()}>Add Student</Button>
               <Button className='custom-sized-btn'>View Meetings</Button>
             </footer>
           </div>
