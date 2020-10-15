@@ -102,8 +102,8 @@ function EditGroup(props) {
     <React.Fragment>
       {props.editClicked ? (
         (editUserClicked ? (
-          <EditStudent loggedInUser={props.loggedInUser} editUserClicked={editUserClicked} usersInGroup={usersInGroup} 
-            userId={userIdToEdit} onEditUserClickedChange={setEditUserClicked} onUsersInGroupChange={setUsersInGroup} />
+          <EditStudent loggedInUser={props.loggedInUser} editUserClicked={editUserClicked} usersInGroup={usersInGroup} groups={props.groups}
+            currGroup={groupToEdit} userId={userIdToEdit} onEditUserClickedChange={setEditUserClicked} onUsersInGroupChange={setUsersInGroup} />
         ) : (
           <div className='edit-group-container'>
           {groupToEdit ? (
