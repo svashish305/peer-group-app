@@ -71,62 +71,22 @@
   .title {
     margin: 3rem 0 2rem 0;
     font-size: 1.15rem;
-    font-family: 'EncodeSansBold';
-    color: var(--primary);
-  }
-
-  .auth-container {
-    background: var(--secondary);
-    border: 1px solid var(--primary);
-    box-sizing: border-box;
-    border-radius: 5px;
   }
 
   .auth-input {
-    width: -webkit-fill-available;
-    height: 2.5rem;
-    background: var(--inputColor);
-    border: none;
-    border-radius: 5px;
-    padding-left: 0.75rem;
-    font-family: 'EncodeSansRegular';
     font-size: 0.75rem;
   }
 
   .auth-input::placeholder {
-    color: var(--inputPlaceholderColor);
-    font-family: 'EncodeSansLight';
     font-size: 0.75rem;
-  }
-
-  .login-btn {
-    width: -webkit-fill-available;
-    height: 2.5rem;
-    background: var(--primary);
-    border: none;
-    border-radius: 5px;
-  }
-
-  .register-btn {
-    width: -webkit-fill-available;
-    height: 2.5rem;
-    background: var(--secondary);
-    border: 1px solid var(--primary);
-    border-radius: 5px;
   }
 
   .login-btn-text {
-    text-transform: uppercase;
-    font-family: 'EncodeSansSemibold';
     font-size: 0.75rem;
-    color: var(--secondary);
   }
 
   .register-btn-text {
-    text-transform: uppercase;
-    font-family: 'EncodeSansSemibold';
     font-size: 0.75rem;
-    color: var(--primary);
   }
 }
 
@@ -138,64 +98,27 @@
   .title {
     margin: 3rem 0 2rem 0;
     font-size: 1.5rem;
-    font-family: 'EncodeSansBold';
-    color: var(--primary);
   }
 
   .auth-container {
-    background: var(--secondary);
-    border: 1px solid var(--primary);
-    box-sizing: border-box;
-    border-radius: 5px;
     width: 25.75rem;
     margin: 0 auto;
   }
 
   .auth-input {
-    width: -webkit-fill-available;
-    height: 2.5rem;
-    background: var(--inputColor);
-    border: none;
-    border-radius: 5px;
-    padding-left: 0.75rem;
-    font-family: 'EncodeSansRegular';
     font-size: 0.875rem;
   }
 
   .auth-input::placeholder {
-    color: var(--inputPlaceholderColor);
-    font-family: 'EncodeSansLight';
     font-size: 0.875rem;
-  }
-
-  .login-btn {
-    width: -webkit-fill-available;
-    height: 2.5rem;
-    background: var(--primary);
-    border: none;
-    border-radius: 5px;
-  }
-
-  .register-btn {
-    width: -webkit-fill-available;
-    height: 2.5rem;
-    background: var(--secondary);
-    border: 1px solid var(--primary);
-    border-radius: 5px;
   }
 
   .login-btn-text {
-    text-transform: uppercase;
-    font-family: 'EncodeSansSemibold';
     font-size: 0.875rem;
-    color: var(--secondary);
   }
 
   .register-btn-text {
-    text-transform: uppercase;
-    font-family: 'EncodeSansSemibold';
     font-size: 0.875rem;
-    color: var(--primary);
   }
 }
 
@@ -207,8 +130,6 @@
   .title {
     margin: 3rem 0 3rem 0;
     font-size: 2rem;
-    font-family: 'EncodeSansBold';
-    color: var(--primary);
   }
 
   .auth-img {
@@ -216,58 +137,32 @@
   }
 
   .auth-container {
-    background: var(--secondary);
-    border: 1px solid var(--primary);
-    box-sizing: border-box;
-    border-radius: 5px;
     width: 25.75rem;
   }
 
   .auth-input {
-    width: -webkit-fill-available;
     height: 3.875rem;
-    background: var(--inputColor);
-    border: none;
-    border-radius: 5px;
-    padding-left: 0.75rem;
-    font-family: 'EncodeSansRegular';
     font-size: 1em;
   }
 
   .auth-input::placeholder {
-    color: var(--inputPlaceholderColor);
-    font-family: 'EncodeSansLight';
     font-size: 1rem;
   }
 
   .login-btn {
-    width: -webkit-fill-available;
     height: 3.875rem;
-    background: var(--primary);
-    border: none;
-    border-radius: 5px;
   }
 
   .register-btn {
-    width: -webkit-fill-available;
     height: 3.875rem;
-    background: var(--secondary);
-    border: 1px solid var(--primary);
-    border-radius: 5px;
   }
 
   .login-btn-text {
-    text-transform: uppercase;
-    font-family: 'EncodeSansSemibold';
     font-size: 1rem;
-    color: var(--secondary);
   }
 
   .register-btn-text {
-    text-transform: uppercase;
-    font-family: 'EncodeSansSemibold';
     font-size: 1rem;
-    color: var(--primary);
   }
 }
 
@@ -279,67 +174,35 @@
   .title {
     margin: 3rem 0 3rem 0;
     font-size: 3rem;
-    font-family: 'EncodeSansBold';
-    color: var(--primary);
-  }
-
-  .auth-img {
-    width: -webkit-fill-available;
   }
 
   .auth-container {
-    background: var(--secondary);
-    border: 1px solid var(--primary);
-    box-sizing: border-box;
-    border-radius: 5px;
     width: 25.75rem;
     margin-top: 5rem;
   }
 
   .auth-input {
-    width: -webkit-fill-available;
     height: 3.875rem;
-    background: var(--inputColor);
-    border: none;
-    border-radius: 5px;
-    padding-left: 0.75rem;
-    font-family: 'EncodeSansRegular';
     font-size: 1.125rem;
   }
 
   .auth-input::placeholder {
-    color: var(--inputPlaceholderColor);
-    font-family: 'EncodeSansLight';
     font-size: 1.125rem;
   }
 
   .login-btn {
-    width: -webkit-fill-available;
     height: 3.875rem;
-    background: var(--primary);
-    border: none;
-    border-radius: 5px;
   }
 
   .register-btn {
-    width: -webkit-fill-available;
     height: 3.875rem;
-    background: var(--secondary);
-    border: 1px solid var(--primary);
-    border-radius: 5px;
   }
 
   .login-btn-text {
-    text-transform: uppercase;
-    font-family: 'EncodeSansSemibold';
     font-size: 1.125rem;
-    color: var(--secondary);
   }
 
   .register-btn-text {
-    text-transform: uppercase;
-    font-family: 'EncodeSansSemibold';
     font-size: 1.125rem;
-    color: var(--primary);
   }
 }
