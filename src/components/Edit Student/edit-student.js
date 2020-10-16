@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { API } from '../../api-service';
 import { useCookies } from 'react-cookie';
-import { Container, Row, Col, Dropdown, Button } from 'react-bootstrap';
+import { Container, Row, Col, DropdownButton, Dropdown, Button } from 'react-bootstrap';
 import { UserType } from '../../role';
 import './edit-student.scss';
 
@@ -10,6 +10,7 @@ function EditStudent(props) {
   const [token] = useCookies(['pg-token']);
 
   const [userToEdit, setUserToEdit] = useState(null);
+  const [userToSave, setUserToSave] = useState(null);
 
   useEffect(() => {
     async function fetchData() {
@@ -22,6 +23,9 @@ function EditStudent(props) {
   // eslint-disable-next-line
   [])
 
+  const [userRole, setUserRole] = useState(userToEdit && userToEdit.is_student ? UserType.User : UserType.Admin)
+  const [userGroup, setUserGroup] = useState(props.currGroup.name)
+
   function setEditUserClicked(value) {
     props.onEditUserClickedChange(value)
   }
@@ -29,8 +33,32 @@ function EditStudent(props) {
   function setUsersInGroups(users) {
     props.onUsersInGroupChange(users)
   }
+  
+  const selectRole = (eventKey) => {
+    setUserRole(UserType[eventKey])
+    if(UserType[eventKey]==='Teacher') {
+      setUserToSave({...userToEdit, is_student: false})
+    } else if(UserType[eventKey]==='Student') {
+      setUserToSave({...userToEdit, is_student: true})
+    }
+  }
+
+  const selectGroup = (eventKey) => {
+    // eslint-disable-next-line
+    setUserGroup((props.groups.find(g => g.id == eventKey))['name'])
+    setUserToSave({...userToEdit, group_id: eventKey})
+  }
 
   const saveUser = () => {
+    API.updateOrCreateUser(userToSave, token['pg-token'])
+      .then(savedUser => {
+        console.log(savedUser)
+        if(savedUser.groupId !== userToEdit.groupId) {
+          const updatedUsersInGroup = props.usersInGroup.filter(u => u.id !== savedUser.id)
+          setUsersInGroups(updatedUsersInGroup)
+        }
+      })
+      .catch(err => console.log(err))
     setEditUserClicked(false)
   }
 
@@ -44,18 +72,14 @@ function EditStudent(props) {
               <label className='d-flex dropdown-label'>Role</label>
             </Col>
             <Col>
-              <Dropdown className='custom-dropdown'>
-                <Dropdown.Toggle id="role-dropdown-basic">
-                  {userToEdit && userToEdit.is_student ? UserType.User : UserType.Admin}
-                </Dropdown.Toggle>
-                <Dropdown.Menu>
+              <DropdownButton className='custom-dd' title={userRole}
+                 onSelect={(eventKey) => selectRole(eventKey)}>
                   {Object.entries(UserType).map(([key, value]) => {
                     return (
-                      <Dropdown.Item key={key}>{value}</Dropdown.Item>
+                      <Dropdown.Item key={key} eventKey={key}>{value}</Dropdown.Item>
                     )
                   })}
-                </Dropdown.Menu>
-              </Dropdown>
+              </DropdownButton>
             </Col>
           </Row>
           <Row className='mt-34'>
@@ -63,18 +87,13 @@ function EditStudent(props) {
               <label className='d-flex dropdown-label'>Group</label>
             </Col>
             <Col>
-              <Dropdown className='custom-dropdown'>
-                <Dropdown.Toggle id="group-dropdown-basic">
-                  {props.currGroup.name}
-                </Dropdown.Toggle>
-                <Dropdown.Menu>
-                  {props.groups && props.groups.length && props.groups.map(grp => {
-                    return (
-                      <Dropdown.Item key={grp && grp.id}>{grp.name}</Dropdown.Item>
-                    )
-                  })}
-                </Dropdown.Menu>
-              </Dropdown>
+              <DropdownButton className='custom-dd' title={userGroup} onSelect={(eventKey) => selectGroup(eventKey)}>
+                {props.groups && props.groups.length && props.groups.map(grp => {
+                  return (
+                    <Dropdown.Item key={grp && grp.id} eventKey={grp.id}>{grp.name}</Dropdown.Item>
+                  )
+                })}
+              </DropdownButton>
             </Col>
           </Row>
         </Container>

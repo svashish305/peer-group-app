@@ -16,7 +16,12 @@
   text-align: left;
 }
 
-.custom-dropdown {
+.custom-dd {
+  float: right;
+
+  .dropdown-toggle {
+    width: 9.125rem;
+  }
 }
 
 .student-action-btns {
