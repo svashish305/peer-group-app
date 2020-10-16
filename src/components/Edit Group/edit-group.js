@@ -6,9 +6,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { toast } from 'react-toastify';
 import EditStudent from '../Edit Student/edit-student';
+import { useHistory } from 'react-router-dom';
 import './edit-group.scss';
 
 function EditGroup(props) {
+
+  const history = useHistory()
 
   const [token] = useCookies(['pg-token']);
 
@@ -116,6 +119,10 @@ function EditGroup(props) {
       .catch(err => console.log(err))
   }
 
+  const showMeetings = () => {
+    history.push(`/groups/${props.groupId}/meetings/`)
+  }
+
   return (
     <React.Fragment>
       {props.editClicked ? (
@@ -173,7 +180,7 @@ function EditGroup(props) {
               <Button className='custom-sized-btn' onClick={() => setEditClicked(false)}>Go Back</Button>
               <Button className='custom-sized-btn' onClick={() => scheduleMeeting()}>Schedule Meeting</Button>
               <Button className='custom-sized-btn' onClick={() => createUserClicked()}>Add Student</Button>
-              <Button className='custom-sized-btn'>View Meetings</Button>
+              <Button className='custom-sized-btn' onClick={() => showMeetings()}>View Meetings</Button>
             </footer>
           </div>
         </div>
