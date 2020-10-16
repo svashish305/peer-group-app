@@ -14,6 +14,7 @@ function EditGroup(props) {
 
   const [groupToEdit, setGroupToEdit] = useState(null);
   const [usersInGroup, setUsersInGroup] = useState([]);
+  const [timings, setTimings] = useState([]);
   const [editUserClicked, setEditUserClicked] = useState(false);
   const [userIdToEdit, setUserIdToEdit] = useState(null);
   const [newUserEmail, setNewUserEmail] = useState('');
@@ -27,6 +28,7 @@ function EditGroup(props) {
       const users = await API.getUsersInGroup(props.groupId, token['pg-token'])
       .catch(err => console.log(err))
       setUsersInGroup(users)
+      setTimings(users.map(user => user.availability))
     }
     fetchData()
   }, 
@@ -97,6 +99,22 @@ function EditGroup(props) {
     .catch(err => console.log(err))
   }
 
+  const scheduleMeeting = () => {
+    let slots = {
+      start: [],
+      end: []
+    }
+    for(let i=0; i< timings.length; i++) {
+      let [timingStart, timingEnd] = timings[i].split('-')
+      slots.start.push(parseInt(timingStart))
+      slots.end.push(parseInt(timingEnd))
+    }
+    API.scheduleMeetingForGroup(props.groupId, slots, token['pg-token'])
+      .then(meeting => {
+        toast.success('Scheduled Meeting!')
+      })
+      .catch(err => console.log(err))
+  }
 
   return (
     <React.Fragment>
@@ -153,7 +171,7 @@ function EditGroup(props) {
           <div className='flex-center'>
             <footer className='action-btns'>
               <Button className='custom-sized-btn' onClick={() => setEditClicked(false)}>Go Back</Button>
-              <Button className='custom-sized-btn'>Schedule Meeting</Button>
+              <Button className='custom-sized-btn' onClick={() => scheduleMeeting()}>Schedule Meeting</Button>
               <Button className='custom-sized-btn' onClick={() => createUserClicked()}>Add Student</Button>
               <Button className='custom-sized-btn'>View Meetings</Button>
             </footer>
