@@ -97,8 +97,8 @@ function Dashboard(props) {
             })
             .map((group) => {
               return (
-                <div className='group-row'>
-                  <div key={group && group.id} className={`group-list-item ${isTabletOrMobile || isTabletOrMobileDevice ? 'mb-20' : 'mb-32'}`}>
+                <div key={group && group.id} className='group-row'>
+                  <div className={`group-list-item ${isTabletOrMobile || isTabletOrMobileDevice ? 'mb-20' : 'mb-32'}`}>
                     {group.name}
                   </div>
                   <Image className='edit-icon pointer' src='/assets/images/edit.svg' alt='edit' onClick={() => editGroup(group.id)} fluid />

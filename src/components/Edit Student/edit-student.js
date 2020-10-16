@@ -11,20 +11,22 @@ function EditStudent(props) {
 
   const [userToEdit, setUserToEdit] = useState(null);
   const [userToSave, setUserToSave] = useState(null);
+  const [userRole, setUserRole] = useState(false)
+  const [userGroup, setUserGroup] = useState('')
 
   useEffect(() => {
     async function fetchData() {
       const userToEdit = await API.getUserById(props.userId, token['pg-token'])
       .catch(err => console.log(err))
       setUserToEdit(userToEdit)
+      setUserToSave(userToEdit)
+      setUserRole(!!userToEdit.is_student ? UserType.User : UserType.Admin)
+      setUserGroup(props.currGroup.name)
     }
     fetchData()
   }, 
   // eslint-disable-next-line
   [])
-
-  const [userRole, setUserRole] = useState(userToEdit && userToEdit.is_student ? UserType.User : UserType.Admin)
-  const [userGroup, setUserGroup] = useState(props.currGroup.name)
 
   function setEditUserClicked(value) {
     props.onEditUserClickedChange(value)
@@ -33,32 +35,32 @@ function EditStudent(props) {
   function setUsersInGroups(users) {
     props.onUsersInGroupChange(users)
   }
-  
+
   const selectRole = (eventKey) => {
     setUserRole(UserType[eventKey])
-    if(UserType[eventKey]==='Teacher') {
-      setUserToSave({...userToEdit, is_student: false})
-    } else if(UserType[eventKey]==='Student') {
-      setUserToSave({...userToEdit, is_student: true})
+    if(UserType[eventKey] === UserType.Admin) {
+      setUserToSave({...userToSave, is_student: false})
+    } else if(UserType[eventKey] === UserType.User) {
+      setUserToSave({...userToSave, is_student: true})
     }
   }
 
   const selectGroup = (eventKey) => {
     // eslint-disable-next-line
     setUserGroup((props.groups.find(g => g.id == eventKey))['name'])
-    setUserToSave({...userToEdit, group_id: eventKey})
+    setUserToSave({...userToSave, group_id: eventKey})
   }
 
   const saveUser = () => {
     API.updateOrCreateUser(userToSave, token['pg-token'])
       .then(savedUser => {
-        console.log(savedUser)
-        if(savedUser.groupId !== userToEdit.groupId) {
+        if(savedUser.group_id !== userToEdit.group_id) {
           const updatedUsersInGroup = props.usersInGroup.filter(u => u.id !== savedUser.id)
           setUsersInGroups(updatedUsersInGroup)
         }
       })
       .catch(err => console.log(err))
+    setUserToEdit(userToSave)
     setEditUserClicked(false)
   }
 
