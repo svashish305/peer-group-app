@@ -6,12 +6,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { toast } from 'react-toastify';
 import EditStudent from '../Edit Student/edit-student';
-import { useHistory } from 'react-router-dom';
+import MeetingList from '../Meeting List/meeting-list';
 import './edit-group.scss';
 
 function EditGroup(props) {
-
-  const history = useHistory()
 
   const [token] = useCookies(['pg-token']);
 
@@ -22,6 +20,7 @@ function EditGroup(props) {
   const [userIdToEdit, setUserIdToEdit] = useState(null);
   const [newUserEmail, setNewUserEmail] = useState('');
   const [isCreateUserButtonClicked, setIsCreateUserButtonClicked] = useState(false);
+  const [showMeetingsClicked, setShowMeetingsClicked] = useState(false);
 
   useEffect(() => {
     async function fetchData() {
@@ -119,10 +118,6 @@ function EditGroup(props) {
       .catch(err => console.log(err))
   }
 
-  const showMeetings = () => {
-    history.push(`/groups/${props.groupId}/meetings/`)
-  }
-
   return (
     <React.Fragment>
       {props.editClicked ? (
@@ -130,60 +125,67 @@ function EditGroup(props) {
           <EditStudent loggedInUser={props.loggedInUser} editUserClicked={editUserClicked} usersInGroup={usersInGroup} groups={props.groups}
             currGroup={groupToEdit} userId={userIdToEdit} onEditUserClickedChange={setEditUserClicked} onUsersInGroupChange={setUsersInGroup} />
         ) : (
-          <div className='edit-group-container'>
-          {groupToEdit ? (
-          <Container>
-            <input className='group-name-input float-left' defaultValue={groupToEdit.name} onClick={evt => evt.target.select()}
-            onKeyDown={evt => evt.key === 'Enter' && evt.preventDefault() && updateGroupName(evt.target.value)}
-            onBlur={(evt) => updateGroupName(evt.target.value)} />
-          </Container>) : null}
-          <br />
-          {usersInGroup ? (
-          <Container className='mt-20'>
-            <label className='heading-text float-left'>Members :</label>
-            <br /><br />
-            <div className='heading-text float-left'>Name</div>
-            <div className='heading-text'>Availability</div>
-            {usersInGroup.length && usersInGroup.map((user) => {
-              return (
-                <div key={user && user.id}>
-                  <Row className='user-list-item mb-20'>
-                    <Col className='p-0 name-col'>
-                      <div className='user-name'>
-                        {(user.name && user.name !== 'New Student') ? user.name : (user.email && user.email.split('@')[0])}
-                      </div>
-                    </Col>
-                    <Col className='p-0'>
-                      <div className='user-availability'>{user.availability}</div>
-                    </Col>
-                    <div className='p-0'>
-                      <Image className='edit-user-icon pointer' src='/assets/images/edit.svg' alt='edit' onClick={() => editUser(user.id)} fluid />
-                      <Image className='delete-user-icon pointer' src='/assets/images/delete.svg' alt='delete' onClick={() => deleteUser(user.id)} fluid />
-                    </div>
-                  </Row>
-                </div>
-              )
-            })}
-            {isCreateUserButtonClicked ? 
-            (<Row>
-              <Col className='user-list-item mb-20 p-0'>
-                <input autoFocus className='new-user-input' placeholder='Enter User Email' type='email' value={newUserEmail} onChange={(evt) => setNewUserEmail(evt.target.value)} />
-              </Col>
-              <div className='p-0'>
-                <FontAwesomeIcon icon={faPlus} className='pointer' onClick={() => addUser(newUserEmail)} />
-                <FontAwesomeIcon icon={faTimes} className='pointer' onClick={() => setIsCreateUserButtonClicked(false)} />
-              </div>
-            </Row>) : null}
-          </Container>) : null}
-          <div className='flex-center'>
-            <footer className='action-btns'>
-              <Button className='custom-sized-btn' onClick={() => setEditClicked(false)}>Go Back</Button>
-              <Button className='custom-sized-btn' onClick={() => scheduleMeeting()}>Schedule Meeting</Button>
-              <Button className='custom-sized-btn' onClick={() => createUserClicked()}>Add Student</Button>
-              <Button className='custom-sized-btn' onClick={() => showMeetings()}>View Meetings</Button>
-            </footer>
+          (showMeetingsClicked ? (
+          <div>
+            <MeetingList loggedInUser={props.loggedInUser} showMeetingsClicked={showMeetingsClicked} onShowMeetingsClickedChange={setShowMeetingsClicked}
+            group={groupToEdit} />
           </div>
-        </div>
+          ) : (
+            <div className='edit-group-container'>
+            {groupToEdit ? (
+            <Container>
+              <input className='group-name-input float-left' defaultValue={groupToEdit.name} onClick={evt => evt.target.select()}
+              onKeyDown={evt => evt.key === 'Enter' && evt.preventDefault() && updateGroupName(evt.target.value)}
+              onBlur={(evt) => updateGroupName(evt.target.value)} />
+            </Container>) : null}
+            <br />
+            {usersInGroup ? (
+            <Container className='mt-20'>
+              <label className='heading-text float-left'>Members :</label>
+              <br /><br />
+              <div className='heading-text float-left'>Name</div>
+              <div className='heading-text'>Availability</div>
+              {usersInGroup.length && usersInGroup.map((user) => {
+                return (
+                  <div key={user && user.id}>
+                    <Row className='user-list-item mb-20'>
+                      <Col className='p-0 name-col'>
+                        <div className='user-name'>
+                          {(user.name && user.name !== 'New Student') ? user.name : (user.email && user.email.split('@')[0])}
+                        </div>
+                      </Col>
+                      <Col className='p-0'>
+                        <div className='user-availability'>{user.availability}</div>
+                      </Col>
+                      <div className='p-0'>
+                        <Image className='edit-user-icon pointer' src='/assets/images/edit.svg' alt='edit' onClick={() => editUser(user.id)} fluid />
+                        <Image className='delete-user-icon pointer' src='/assets/images/delete.svg' alt='delete' onClick={() => deleteUser(user.id)} fluid />
+                      </div>
+                    </Row>
+                  </div>
+                )
+              })}
+              {isCreateUserButtonClicked ? 
+              (<Row>
+                <Col className='user-list-item mb-20 p-0'>
+                  <input autoFocus className='new-user-input' placeholder='Enter User Email' type='email' value={newUserEmail} onChange={(evt) => setNewUserEmail(evt.target.value)} />
+                </Col>
+                <div className='p-0'>
+                  <FontAwesomeIcon icon={faPlus} className='pointer' onClick={() => addUser(newUserEmail)} />
+                  <FontAwesomeIcon icon={faTimes} className='pointer' onClick={() => setIsCreateUserButtonClicked(false)} />
+                </div>
+              </Row>) : null}
+            </Container>) : null}
+              <div className='flex-center'>
+                <footer className='action-btns'>
+                  <Button className='custom-sized-btn' onClick={() => setEditClicked(false)}>Go Back</Button>
+                  <Button className='custom-sized-btn' onClick={() => scheduleMeeting()}>Schedule Meeting</Button>
+                  <Button className='custom-sized-btn' onClick={() => createUserClicked()}>Add Student</Button>
+                  <Button className='custom-sized-btn' onClick={() => setShowMeetingsClicked(true)}>View Meetings</Button>
+                </footer>
+              </div>
+            </div>
+          ))
         ))
       ) : null}
     </React.Fragment>

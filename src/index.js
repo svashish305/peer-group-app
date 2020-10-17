@@ -3,12 +3,9 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import Auth from './components/Auth/auth';
-import MeetingList from './components/Meeting List/meeting-list';
 import {Route, BrowserRouter} from 'react-router-dom';
 import {CookiesProvider} from 'react-cookie';
 import * as serviceWorker from './serviceWorker';
-import EditGroup from './components/Edit Group/edit-group';
-import EditStudent from './components/Edit Student/edit-student';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -16,9 +13,6 @@ ReactDOM.render(
       <BrowserRouter>
         <Route exact path="/" component={Auth} />
         <Route exact path="/dashboard" component={App} />
-        {/* <Route exact path="/groups/:groupId/edit" component={EditGroup} />
-        <Route exact path="/groups/:groupId/users/:userId/edit/" component={EditStudent} /> */}
-        <Route exact path="/groups/:groupId/meetings/" component={MeetingList} />
       </BrowserRouter>
     </CookiesProvider>
   </React.StrictMode>,
