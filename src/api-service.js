@@ -193,4 +193,15 @@ export class API {
       body: JSON.stringify(body)
     }).then(resp => resp.json())
   }
+
+  static giveFeedback(body, token) {
+    return fetch(`${process.env.REACT_APP_API_URL}/api/give_feedback/`, {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`,
+      },
+      body: JSON.stringify(body)
+    }).then(resp => resp.json())
+  }
 }

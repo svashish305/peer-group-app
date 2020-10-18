@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { API } from '../../api-service';
 import { useCookies } from 'react-cookie';
-import { useMediaQuery } from 'react-responsive';
 import { Container, Row, Col, Image, Button } from 'react-bootstrap';
 import MeetingList from '../Meeting List/meeting-list';
 import FeedbackList from '../Feedback List/feedback-list';
@@ -11,10 +10,6 @@ import './student-dashboard.scss'
 import { toast } from 'react-toastify';
 
 function StudentDashboard(props) {
-  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' });
-  const isTabletOrMobileDevice = useMediaQuery({
-    query: '(max-device-width: 1224px)',
-  });
 
   const [token] = useCookies(['pg-token']);
   const [groupOfUser, setGroupOfUser] = useState(null);

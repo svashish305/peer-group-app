@@ -48,7 +48,7 @@ function MeetingList(props) {
         </Row>
         {meetings && meetings.length && meetings.map(meeting => {
           return (
-            <Row>
+            <Row key={meeting && meeting.id} className='mt-20'>
               <Col>
                 <div className='flex-center read-only'>{format(parseISO(meeting.time), "MMM d yyyy")}</div>
               </Col>
@@ -61,7 +61,7 @@ function MeetingList(props) {
       </Container>
       <div className='d-flex'>
         <footer>
-          <Button onClick={() => setShowMeetingsClicked(false)}>Go Back</Button>
+          <Button className='custom-meeting-list-btn' onClick={() => setShowMeetingsClicked(false)}>Go Back</Button>
         </footer>
       </div>
     </div>

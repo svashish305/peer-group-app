@@ -40,7 +40,7 @@ function FeedbackList(props) {
         </Row>
         {feedbacks && feedbacks.length && feedbacks.map(feedback => {
           return (
-            <Row key={feedback && feedback.id}>
+            <Row key={feedback && feedback.id} className='mt-20'>
               <Col>
                 <div className='flex-center feedback-read-only'>{feedback.remarks}</div>
               </Col>
@@ -53,7 +53,7 @@ function FeedbackList(props) {
       </Container>
       <div className='d-flex'>
         <footer>
-          <Button onClick={() => setShowFeedbackClicked(false)}>Go Back</Button>
+          <Button className='custom-feedback-list-btn' onClick={() => setShowFeedbackClicked(false)}>Go Back</Button>
         </footer>
       </div>
     </div>
