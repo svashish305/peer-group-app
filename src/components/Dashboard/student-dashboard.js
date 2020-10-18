@@ -6,7 +6,9 @@ import { Container, Row, Col, Image, Button } from 'react-bootstrap';
 import MeetingList from '../Meeting List/meeting-list';
 import FeedbackList from '../Feedback List/feedback-list';
 import GiveFeedback from '../Give Feedback/give-feedback';
+import TimeRangePicker from '@wojtekmaj/react-timerange-picker';
 import './student-dashboard.scss'
+import { toast } from 'react-toastify';
 
 function StudentDashboard(props) {
   const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' });
@@ -21,6 +23,8 @@ function StudentDashboard(props) {
   const [giveFeedbackClicked, setGiveFeedbackClicked] = useState(false);
   const [showFeedbackClicked, setShowFeedbackClicked] = useState(false);
   const [showMeetingClicked, setShowMeetingClicked] = useState(false)
+  const [timeRange, setTimeRange] = useState(null);
+  const [slot, setSlot] = useState(null);
 
   useEffect(() => {
     async function fetchData() {
@@ -31,6 +35,10 @@ function StudentDashboard(props) {
       const usersInGroup = await API.getUsersInGroup(groupOfUser.id, token['pg-token'])
       .catch(err => console.log(err))
       setUsersInGroup(usersInGroup)
+
+      const oldStart = [props.loggedInUser.availability.split('-')[0].slice(0, 2), ':', props.loggedInUser.availability.split('-')[0].slice(2)].join('')
+      const oldEnd = [props.loggedInUser.availability.split('-')[1].slice(0, 2), ':', props.loggedInUser.availability.split('-')[1].slice(2)].join('')
+      setTimeRange([oldStart, oldEnd])
     }
     fetchData()
   }, 
@@ -42,8 +50,19 @@ function StudentDashboard(props) {
     setGiveFeedbackClicked(true)
   }
 
+  const changeAvailability = (timeRange) => {
+    setTimeRange(timeRange)
+    const slot = {
+      start: timeRange[0].replace(':', ''),
+      end: timeRange[1].replace(':', '')
+    }
+    setSlot(slot)
+  }
+
   const saveAvailability = () => {
-    // API.saveUserAvailability(props.loggedInUser.id, , token['pg-token'])
+    API.saveUserAvailability(props.loggedInUser.id, slot, token['pg-token'])
+      .then(res => toast.success('Saved Availability!'))
+      .catch(err => console.log(err)) 
   }
 
   return (
@@ -75,12 +94,19 @@ function StudentDashboard(props) {
                 <Col>
                   <div className='flex-center read-only'>{peer.name !== 'New Student' ? peer.name : peer.email.split('@')[0]}</div>                
                 </Col>
-                <Col className='d-flex justify-content-end'>
+                <Col>
                   <Image src='/assets/images/feedback.svg' alt='feedback' className='feedback-icon' onClick={() => giveFeedback(peer)} />
                 </Col>
               </Row>
               )
             })}
+            <div>
+              <label className='mt-20 float-left label-text'>My Preferred Meeting Slot : </label>
+              <TimeRangePicker minTime='18:00:00' maxTime='23:59:00' format='H mm' rangeDivider=' to '
+              disableClock={true} clearIcon={null} value={timeRange} onChange={(value) => changeAvailability(value)} /> <br/>  
+              <span className='hint'>Times should be min. 2 hours apart</span>
+            </div>
+            
             <div className='flex-center'>
               <footer className='user-action-btns'>
                 <br />
