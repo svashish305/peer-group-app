@@ -49,7 +49,7 @@ function MeetingList(props) {
         {meetings && meetings.length && meetings.map(meeting => {
           return (
             <Row>
-              <Col className=''>
+              <Col>
                 <div className='flex-center read-only'>{format(parseISO(meeting.time), "MMM d yyyy")}</div>
               </Col>
               <Col>

@@ -101,8 +101,8 @@ function StudentDashboard(props) {
               )
             })}
             <div>
-              <label className='mt-20 float-left label-text'>My Preferred Meeting Slot : </label>
-              <TimeRangePicker minTime='18:00:00' maxTime='23:59:00' format='H mm' rangeDivider=' to '
+              <label className='mt-34 float-left label-text'>My Preferred Meeting Slot : </label>
+              <TimeRangePicker className='mt-20' minTime='18:00:00' maxTime='23:59:00' format='H mm' rangeDivider=' to '
               disableClock={true} clearIcon={null} value={timeRange} onChange={(value) => changeAvailability(value)} /> <br/>  
               <span className='hint'>Times should be min. 2 hours apart</span>
             </div>
