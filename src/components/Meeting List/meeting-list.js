@@ -17,8 +17,8 @@ function MeetingList(props) {
         const meetingsOfGroup = await API.getMeetingsOfGroup(props.group.id, token['pg-token'])
         .catch(err => console.log(err))
         setMeetings(meetingsOfGroup)
-      } else if (props.user) {
-        const meetingsOfUser = await API.getMeetingsOfUser(props.user.id, token['pg-token'])
+      } else if (props.userId) {
+        const meetingsOfUser = await API.getMeetingsOfUser(props.userId, token['pg-token'])
         .catch(err => console.log(err))
         setMeetings(meetingsOfUser)
       }
@@ -37,7 +37,7 @@ function MeetingList(props) {
     <div className='group-meeting-container'>
       <Container className='p-0 d-flex flex-column'>
         {props.group ? <label className='meeting-text'>{props.group.name} Meetings</label>
-         : (props.user ? <label className='meeting-text'>My Meetings</label> : null)}
+         : (props.userId ? <label className='meeting-text'>My Meetings</label> : null)}
         <Row className='mt-20'>
           <Col>
             <label className='float-left heading-text'>Date</label>

@@ -4,6 +4,8 @@ import { useCookies } from 'react-cookie';
 import { useMediaQuery } from 'react-responsive';
 import { Container, Row, Col, Image, Button } from 'react-bootstrap';
 import MeetingList from '../Meeting List/meeting-list';
+import FeedbackList from '../Feedback List/feedback-list';
+import GiveFeedback from '../Give Feedback/give-feedback';
 import './student-dashboard.scss'
 
 function StudentDashboard(props) {
@@ -15,7 +17,8 @@ function StudentDashboard(props) {
   const [token] = useCookies(['pg-token']);
   const [groupOfUser, setGroupOfUser] = useState(null);
   const [usersInGroup, setUsersInGroup] = useState([]);
-  const [writeFeedbackClicked, setWriteFeedbackClicked] = useState(false);
+  const [feedbackReceiver, setFeedbackReceiver] = useState(null);
+  const [giveFeedbackClicked, setGiveFeedbackClicked] = useState(false);
   const [showFeedbackClicked, setShowFeedbackClicked] = useState(false);
   const [showMeetingClicked, setShowMeetingClicked] = useState(false)
 
@@ -34,8 +37,9 @@ function StudentDashboard(props) {
   // eslint-disable-next-line
   [])
 
-  const giveFeedback = (receiverId) => {
-    
+  const giveFeedback = (receiver) => {
+    setFeedbackReceiver(receiver)
+    setGiveFeedbackClicked(true)
   }
 
   const saveAvailability = () => {
@@ -45,12 +49,15 @@ function StudentDashboard(props) {
   return (
     <React.Fragment>
       {showFeedbackClicked ? (
-        <h1>Load feedbacklist component</h1>
+        <FeedbackList userId={props.loggedInUser.id} showFeedbackClicked={showFeedbackClicked} onShowFeedbackClickedChange={setShowFeedbackClicked} />
       ) : (
-        (showMeetingClicked ? (
-          <MeetingList user={props.loggedInUser} showMeetingClicked={showMeetingClicked} onShowMeetingsClickedChange={setShowMeetingClicked} />
-        ) : (
-          <div className='user-dashboard-container'>
+        showMeetingClicked ? (
+          <MeetingList userId={props.loggedInUser.id} showMeetingClicked={showMeetingClicked} onShowMeetingsClickedChange={setShowMeetingClicked} />
+        ) : ( 
+          giveFeedbackClicked ? (
+            <GiveFeedback userId={props.loggedInUser.id} receiver={feedbackReceiver} giveFeedbackClicked={giveFeedbackClicked} onGiveFeedbackClickedChange={setGiveFeedbackClicked} />
+          ) : (
+            <div className='user-dashboard-container'>
             <Container className='mt-34 d-flex'>
               <Row>
                 <Col className='p-0'>
@@ -68,8 +75,8 @@ function StudentDashboard(props) {
                 <Col>
                   <div className='flex-center read-only'>{peer.name !== 'New Student' ? peer.name : peer.email.split('@')[0]}</div>                
                 </Col>
-                <Col>
-                  <Image src='/assets/images/feedback.svg' alt='feedback' className='feedback-icon' onClick={() => giveFeedback(peer.id)} />
+                <Col className='d-flex justify-content-end'>
+                  <Image src='/assets/images/feedback.svg' alt='feedback' className='feedback-icon' onClick={() => giveFeedback(peer)} />
                 </Col>
               </Row>
               )
@@ -83,7 +90,8 @@ function StudentDashboard(props) {
               </footer>
             </div>
           </div>
-        ))
+          )
+        )
       )}
     </React.Fragment>
   )
