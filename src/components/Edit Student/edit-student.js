@@ -90,7 +90,7 @@ function EditStudent(props) {
             </Col>
             <Col>
               <DropdownButton className='custom-dd' title={userGroup} onSelect={(eventKey) => selectGroup(eventKey)}>
-                {props.groups && props.groups.length && props.groups.map(grp => {
+                {props.groups && props.groups.length > 0 && props.groups.map(grp => {
                   return (
                     <Dropdown.Item key={grp && grp.id} eventKey={grp.id}>{grp.name}</Dropdown.Item>
                   )

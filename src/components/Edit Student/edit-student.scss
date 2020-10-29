@@ -15,6 +15,11 @@
   font-size: 1.125rem;
 }
 
+.dropdown-item:hover,
+.dropdown-item:focus {
+  background-color: var(--primary) !important;
+}
+
 .custom-dd {
   .dropdown-toggle {
     width: 9.125rem;

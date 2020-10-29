@@ -86,7 +86,7 @@ function Dashboard(props) {
           </div>
 
           <div className={`${isTabletOrMobile || isTabletOrMobileDevice ? 'mt-42' : 'mt-42'}`}>
-            {groups && groups.length && 
+            {groups && groups.length > 0 && 
             // eslint-disable-next-line
             groups.filter(g => {
               if(search == null) {

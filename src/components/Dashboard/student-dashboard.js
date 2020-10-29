@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import { useMediaQuery } from 'react-responsive';
 import { API } from '../../api-service';
 import { useCookies } from 'react-cookie';
 import { Container, Row, Col, Image, Button } from 'react-bootstrap';
@@ -10,6 +11,9 @@ import './student-dashboard.scss'
 import { toast } from 'react-toastify';
 
 function StudentDashboard(props) {
+  const isDesktopOrLaptop = useMediaQuery({
+    query: '(min-device-width: 1220px)'
+  })
 
   const [token] = useCookies(['pg-token']);
   const [groupOfUser, setGroupOfUser] = useState(null);
@@ -83,23 +87,23 @@ function StudentDashboard(props) {
               </Row>            
             </Container>
             <label className='mt-8 float-left label-text'>My Peers : </label><br />
-            {usersInGroup && usersInGroup.length && usersInGroup.filter(user => user.id !== props.loggedInUser.id).map(peer => {
+            {usersInGroup && usersInGroup.length > 0 && usersInGroup.filter(user => user.id !== props.loggedInUser.id).map(peer => {
               return (
               <Row key={peer && peer.id} className='mt-20'>
                 <Col>
                   <div className='flex-center read-only'>{peer.name !== 'New Student' ? peer.name : peer.email.split('@')[0]}</div>                
                 </Col>
                 <Col>
-                  <Image src='/assets/images/feedback.svg' alt='feedback' className='feedback-icon' onClick={() => giveFeedback(peer)} />
+                  <Image src='/assets/images/feedback.svg' alt='feedback' className='feedback-icon pointer' onClick={() => giveFeedback(peer)} />
                 </Col>
               </Row>
               )
             })}
             <div>
               <label className='mt-34 float-left label-text'>My Preferred Meeting Slot : </label>
-              <TimeRangePicker className='mt-20' minTime='18:00:00' maxTime='23:59:00' format='H mm' rangeDivider=' to '
+              <TimeRangePicker className={isDesktopOrLaptop ? 'mt-34' : 'mt-20'} minTime='18:00:00' maxTime='23:59:00' format='H mm' rangeDivider=' to '
               disableClock={true} clearIcon={null} value={timeRange} onChange={(value) => changeAvailability(value)} /> <br/>  
-              <span className='hint'>Times should be min. 2 hours apart</span>
+              <span className='hint'>Select min. 2 hours apart slots</span>
             </div>
             
             <div className='flex-center'>

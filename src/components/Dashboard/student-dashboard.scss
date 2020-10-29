@@ -49,3 +49,42 @@ footer {
   font-size: 0.875rem !important;
   padding: 0 !important;
 }
+
+@media (min-width: 576px) {
+  .user-dashboard-container {
+    margin: 0 9.5rem !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .user-dashboard-container {
+    margin: 0 15.25rem !important;
+  }
+
+  .user-action-btns {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+@media (min-width: 992px) {
+  .user-dashboard-container {
+    margin: 0 20.25rem !important;
+  }
+
+  .user-action-btns {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+@media (min-width: 1200px) {
+  .user-dashboard-container {
+    margin: 0 22.25rem !important;
+  }
+
+  .user-action-btns {
+    display: flex;
+    flex-direction: row;
+  }
+}

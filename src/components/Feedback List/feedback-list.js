@@ -38,7 +38,7 @@ function FeedbackList(props) {
             <label className='float-left feedback-heading-text'>Date</label>
           </Col>
         </Row>
-        {feedbacks && feedbacks.length && feedbacks.map(feedback => {
+        {feedbacks && feedbacks.length > 0 && feedbacks.map(feedback => {
           return (
             <Row key={feedback && feedback.id} className='mt-20'>
               <Col>
@@ -51,7 +51,7 @@ function FeedbackList(props) {
           )
         })}
       </Container>
-      <div className='d-flex'>
+      <div className='flex-center'>
         <footer>
           <Button className='custom-feedback-list-btn' onClick={() => setShowFeedbackClicked(false)}>Go Back</Button>
         </footer>

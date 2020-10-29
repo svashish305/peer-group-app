@@ -145,7 +145,7 @@ function EditGroup(props) {
               <br /><br />
               <div className='heading-text float-left'>Name</div>
               <div className='heading-text'>Availability</div>
-              {usersInGroup.length && usersInGroup.map((user) => {
+              {usersInGroup.length > 0 && usersInGroup.map((user) => {
                 return (
                   <div key={user && user.id}>
                     <Row className='user-list-item mb-20'>

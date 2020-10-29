@@ -16,24 +16,28 @@ function GiveFeedback(props) {
   }
 
   const giveFeedback = () => {
-    API.giveFeedback({remarks: feedbackInput, receiver_id: props.receiver.id}, token['pg-token'])
+    if(feedbackInput.length > 0) {
+      API.giveFeedback({remarks: feedbackInput, receiver_id: props.receiver.id}, token['pg-token'])
       .then(feedback => toast.success('Feedback Posted!'))
       .catch(err => console.log(err))
-    setGiveFeedbackClicked(false)
+      setGiveFeedbackClicked(false)
+    }
   }
 
   return (
     <div className='give-feedback-container'>
-      <label className='header-text'>
-        Write feedback for "{props.receiver.name !== 'New Student' ? props.receiver.name : props.receiver.email.split('@')[0]}" :  
-      </label>
       <Container>
+        <Row>
+          <label className='header-text'>
+            Write feedback for "{props.receiver.name !== 'New Student' ? props.receiver.name : props.receiver.email.split('@')[0]}" :  
+          </label>
+        </Row>
         <Row>
           <label className='mt-34 label-text'>Remarks : </label>
         </Row>
         <Row>
           <Col className='p-0'>
-            <textarea className='float-left feedback-input' autoFocus rows='10' cols='25' onChange={(evt) => setFeedbackInput(evt.target.value)}></textarea>
+            <textarea className='float-left feedback-input' autoFocus onChange={(evt) => setFeedbackInput(evt.target.value)}></textarea>
           </Col>
         </Row>
       </Container>

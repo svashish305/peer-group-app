@@ -46,20 +46,20 @@ function MeetingList(props) {
             <label className='float-left heading-text'>Time</label>
           </Col>
         </Row>
-        {meetings && meetings.length && meetings.map(meeting => {
+        {meetings && meetings.length > 0 && meetings.map(meeting => {
           return (
             <Row key={meeting && meeting.id} className='mt-20'>
               <Col>
-                <div className='flex-center read-only'>{format(parseISO(meeting.time), "MMM d yyyy")}</div>
+                <div className='flex-center read-only-field'>{format(parseISO(meeting.time), "MMM d yyyy")}</div>
               </Col>
               <Col>
-                <div className='flex-center read-only'>{format(parseISO(meeting.time), "h:mm aa")} - {format(addHours(parseISO(meeting.time), 1), "h:mm aa")}</div>
+                <div className='flex-center read-only-field'>{format(parseISO(meeting.time), "h:mm aa")} - {format(addHours(parseISO(meeting.time), 1), "h:mm aa")}</div>
               </Col>
             </Row>
           )
         })}
       </Container>
-      <div className='d-flex'>
+      <div className='flex-center'>
         <footer>
           <Button className='custom-meeting-list-btn' onClick={() => setShowMeetingsClicked(false)}>Go Back</Button>
         </footer>
