@@ -2,8 +2,128 @@
   margin: 0 1.25rem;
 }
 
-.group-list {
+.search-container {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search-input {
+  width: 11.5rem !important;
+  height: 2.375rem;
+  padding-left: 0.75rem;
+  background-color: var(--inputColor);
+  border: none;
+  border-radius: 5px;
+  background-image: url(/assets/images/search.svg);
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: 2.25rem 1.125rem;
+}
+
+.search-input::placeholder {
+  font-family: 'EncodeSansLight';
+  font-size: 0.875rem;
+}
+
+.group-row {
+  display: flex;
+  flex-direction: row;
 }
 
 .group-list-item {
+  font-family: 'EncodeSansRegular';
+  font-size: 0.875rem;
+  color: var(--primary);
+  border: 1px solid var(--primary);
+  border-radius: 5px;
+  width: 11.625rem;
+  margin-right: auto;
+}
+
+.edit-icon {
+  width: 1.5rem;
+  height: 1.5rem !important;
+  margin: 0 0.9375rem 0 1.5rem;
+}
+
+.delete-icon {
+  width: 1.5rem;
+  height: 1.5rem !important;
+}
+
+.new-group-input {
+  font-family: 'EncodeSansLight';
+  font-size: 0.875rem;
+  border: none;
+  outline: none;
+}
+
+.fa-plus {
+  color: var(--primary);
+  width: 1.5rem !important;
+  height: 1.5rem;
+  margin: 0 0.9375rem 0 1.5rem;
+}
+
+.fa-times {
+  color: var(--primary);
+  width: 1.5rem !important;
+  height: 1.5rem;
+}
+
+@media (min-width: 576px) {
+  .dashboard-container {
+    margin: 0 9.5rem !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .dashboard-container {
+    margin: 0 15.25rem !important;
+  }
+}
+
+@media (min-width: 992px) {
+  .dashboard-container {
+    margin: 0 20.25rem !important;
+  }
+
+  .group-list-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media (min-width: 1200px) {
+  .dashboard-container {
+    margin: 0 22.25rem !important;
+  }
+
+  .search-container {
+    height: 3rem;
+  }
+
+  .search-input {
+    width: 25rem !important;
+    font-family: 'EncodeSansRegular';
+    font-size: 1.125rem;
+  }
+
+  .search-input::placeholder {
+    font-size: 1.125rem;
+  }
+
+  .group-row {
+    height: 4rem;
+  }
+
+  .group-list-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }

@@ -1,0 +1,41 @@
+.edit-student-container {
+  margin: 2rem 1.25rem 0 1.25rem;
+}
+
+.student-name {
+  color: var(--primary);
+  font-family: 'EncodeSansSemibold';
+  font-size: 1.125rem;
+  text-align: left;
+}
+
+.dropdown-label {
+  color: var(--primary);
+  font-family: 'EncodeSansMedium';
+  font-size: 1.125rem;
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+  background-color: var(--primary) !important;
+}
+
+.custom-dd {
+  .dropdown-toggle {
+    width: 9.125rem;
+  }
+}
+
+.student-action-btns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 1.4375rem;
+}
+
+.custom-sized-user-btn {
+  width: 8.125rem;
+  height: 2.5rem;
+  font-family: 'EncodeSansMedium';
+  font-size: 0.875rem !important;
+  padding: 0 !important;
+}

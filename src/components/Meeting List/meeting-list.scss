@@ -1,0 +1,33 @@
+.group-meeting-container {
+  margin: 2rem 1.25rem 0 1.25rem;
+}
+
+.meeting-text {
+  color: var(--primary);
+  font-family: 'EncodeSansSemibold';
+  font-size: 1.125rem;
+  text-align: left;
+}
+
+.heading-text {
+  color: var(--primary);
+  font-family: 'EncodeSansMedium';
+  font-size: 1.125rem;
+}
+
+.read-only-field {
+  background-color: var(--readOnlyColor);
+  border-radius: 5px;
+  width: 7.5rem;
+  height: 1.875rem;
+  font-family: 'EncodeSansRegular';
+  font-size: 0.83rem;
+}
+
+.custom-meeting-list-btn {
+  width: 8.125rem;
+  height: 2.5rem;
+  font-family: 'EncodeSansMedium';
+  font-size: 0.875rem !important;
+  padding: 0 !important;
+}

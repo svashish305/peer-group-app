@@ -79,7 +79,7 @@
 }
 
 a:hover {
-  color: theme-color(secondary) !important;
+  color: var(--secondary) !important;
   text-decoration: none !important;
 }
 
@@ -94,8 +94,20 @@ a:hover {
   margin-top: 4.125rem;
 }
 
+.mt-42 {
+  margin-top: 2.625rem;
+}
+
 .mt-34 {
   margin-top: 2.125rem;
+}
+
+.mt-20 {
+  margin-top: 1.25rem;
+}
+
+.mt-8 {
+  margin-top: 0.5rem;
 }
 
 .mb-320 {

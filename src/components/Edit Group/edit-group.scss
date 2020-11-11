@@ -1,0 +1,149 @@
+.edit-group-container {
+  margin: 2rem 1.25rem 0 1.25rem;
+}
+
+.group-name-input {
+  overflow: hidden;
+  box-sizing: border-box;
+  border: solid 1px transparent;
+  border-radius: 5px;
+  text-overflow: ellipsis;
+  width: 6.875rem;
+  padding-left: 0;
+  font-family: 'EncodeSansSemibold';
+  font-size: 1.125rem;
+  color: var(--primary);
+}
+
+.heading-text {
+  color: var(--primary);
+  font-family: 'EncodeSansMedium';
+  font-size: 1.125rem;
+}
+
+.name-heading-col {
+  width: 6.5625rem;
+}
+
+.user-list-item {
+  display: flex;
+  flex-direction: row;
+  height: 1.875rem;
+}
+
+.new-user-input {
+  color: var(--primary);
+  border: 1px solid var(--primary);
+  border-radius: 5px;
+  font-family: 'EncodeSansRegular';
+  font-size: 0.875rem;
+  outline: none;
+  width: 6.5625rem;
+}
+
+.new-user-input::placeholder {
+  font-family: 'EncodeSansLight';
+  font-size: 0.75rem;
+}
+
+.name-col {
+  margin-right: 5vw;
+}
+
+.user-name {
+  font-family: 'EncodeSansRegular';
+  font-size: 0.875rem;
+  width: 6.5625rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-transform: capitalize;
+  color: var(--primary);
+  border: 1px solid var(--primary);
+  border-radius: 5px;
+}
+
+.user-availability {
+  font-family: 'EncodeSansRegular';
+  font-size: 0.875rem;
+  width: 4.875rem;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--readOnlyColor);
+}
+
+.edit-user-icon {
+  width: 1.5rem;
+  height: 1.5rem !important;
+}
+
+.delete-user-icon {
+  width: 1.5rem;
+  height: 1.5rem !important;
+  margin-left: 1rem;
+}
+
+footer {
+  position: absolute;
+  bottom: 2rem;
+}
+
+.action-btns {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-row-gap: 1.4375rem;
+  grid-column-gap: 1.4375rem;
+  grid-template-columns: 1fr 1fr;
+}
+
+.custom-sized-btn {
+  width: 8.125rem;
+  height: 2.5rem;
+  font-family: 'EncodeSansMedium';
+  font-size: 0.875rem !important;
+  padding: 0 !important;
+}
+
+@media (min-width: 768px) {
+  .action-btns {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+@media (min-width: 992px) {
+  .edit-group-container {
+    margin: 2rem 2.5rem 0 2.5rem;
+  }
+
+  .name-col {
+    margin-right: 4vw;
+  }
+
+  .action-btns {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+@media (min-width: 1200px) {
+  .edit-group-container {
+    margin: 2rem 10.25rem 0 10.25rem;
+  }
+
+  .name-col {
+    margin-right: 2.5vw;
+  }
+
+  .user-name {
+    width: 10rem;
+  }
+
+  .new-user-input {
+    width: 10rem;
+  }
+
+  .action-btns {
+    display: flex;
+    flex-direction: row;
+  }
+}
