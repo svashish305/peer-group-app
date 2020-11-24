@@ -1,208 +1,214 @@
 .main-container {
-  margin: 0 1.46875rem;
+	margin: 0 1.46875rem;
 }
 
 .title {
-  margin: 1.875rem 0 2rem 0;
-  font-size: 1.125rem;
-  font-family: 'EncodeSansBold';
-  color: var(--primary);
+	margin: 1.875rem 0 2rem 0;
+	font-size: 1.125rem;
+	font-family: 'EncodeSansBold';
+	color: var(--primary);
 }
 
 .auth-img {
-  width: -webkit-fill-available;
+	width: -webkit-fill-available;
 }
 
 .auth-container {
-  background: var(--secondary);
-  border: 1px solid var(--primary);
-  box-sizing: border-box;
-  border-radius: 5px;
+	background: var(--secondary);
+	border: 1px solid var(--primary);
+	box-sizing: border-box;
+	border-radius: 5px;
 }
 
 .auth-input {
-  width: -webkit-fill-available;
-  height: 2.5rem;
-  background: var(--inputColor);
-  border: none;
-  border-radius: 5px;
-  padding-left: 0.75rem;
-  font-family: 'EncodeSansRegular';
+	width: -webkit-fill-available;
+	height: 2.5rem;
+	background: var(--inputColor);
+	border: none;
+	border-radius: 5px;
+	padding-left: 0.75rem;
+	font-family: 'EncodeSansRegular';
 }
 
 .auth-input::placeholder {
-  color: var(--inputPlaceholderColor);
-  font-family: 'EncodeSansLight';
+	color: var(--inputPlaceholderColor);
+	font-family: 'EncodeSansLight';
 }
 
 .login-btn {
-  width: -webkit-fill-available;
-  height: 2.5rem;
-  background: var(--primary);
-  border: none;
-  border-radius: 5px;
+	width: -webkit-fill-available;
+	height: 2.5rem;
+	background: var(--primary);
+	border: none;
+	border-radius: 5px;
 }
 
 .register-btn {
-  width: -webkit-fill-available;
-  height: 2.5rem;
-  background: var(--secondary);
-  border: 1px solid var(--primary);
-  border-radius: 5px;
-}
-
-.login-btn-text {
-  text-transform: uppercase;
-  font-family: 'EncodeSansSemibold';
-  color: var(--secondary);
+	width: -webkit-fill-available;
+	height: 2.5rem;
+	background: var(--secondary);
+	border: 1px solid var(--primary);
+	border-radius: 5px;
 }
 
 .register-btn-text {
-  text-transform: uppercase;
-  font-family: 'EncodeSansSemibold';
-  color: var(--primary);
+	text-transform: uppercase;
+	font-family: 'EncodeSansSemibold';
+	color: var(--primary);
+}
+
+.register-btn:hover {
+	.register-btn-text {
+		color: var(--secondary);
+	}
+}
+
+.login-btn-text {
+	text-transform: uppercase;
+	font-family: 'EncodeSansSemibold';
+	color: var(--secondary);
 }
 
 @media (min-width: 576px) {
-  .main-container {
-    margin: 0 2.40625rem;
-  }
+	.main-container {
+		margin: 0 2.40625rem;
+	}
 
-  .title {
-    margin: 3rem 0 2rem 0;
-    font-size: 1.15rem;
-  }
+	.title {
+		margin: 3rem 0 2rem 0;
+		font-size: 1.15rem;
+	}
 
-  .auth-input {
-    font-size: 0.75rem;
-  }
+	.auth-input {
+		font-size: 0.75rem;
+	}
 
-  .auth-input::placeholder {
-    font-size: 0.75rem;
-  }
+	.auth-input::placeholder {
+		font-size: 0.75rem;
+	}
 
-  .login-btn-text {
-    font-size: 0.75rem;
-  }
+	.login-btn-text {
+		font-size: 0.75rem;
+	}
 
-  .register-btn-text {
-    font-size: 0.75rem;
-  }
+	.register-btn-text {
+		font-size: 0.75rem;
+	}
 }
 
 @media (min-width: 768px) {
-  .main-container {
-    margin: 0 3rem;
-  }
+	.main-container {
+		margin: 0 3rem;
+	}
 
-  .title {
-    margin: 3rem 0 2rem 0;
-    font-size: 1.5rem;
-  }
+	.title {
+		margin: 3rem 0 2rem 0;
+		font-size: 1.5rem;
+	}
 
-  .auth-container {
-    width: 25.75rem;
-    margin: 0 auto;
-  }
+	.auth-container {
+		width: 25.75rem;
+		margin: 0 auto;
+	}
 
-  .auth-input {
-    font-size: 0.875rem;
-  }
+	.auth-input {
+		font-size: 0.875rem;
+	}
 
-  .auth-input::placeholder {
-    font-size: 0.875rem;
-  }
+	.auth-input::placeholder {
+		font-size: 0.875rem;
+	}
 
-  .login-btn-text {
-    font-size: 0.875rem;
-  }
+	.login-btn-text {
+		font-size: 0.875rem;
+	}
 
-  .register-btn-text {
-    font-size: 0.875rem;
-  }
+	.register-btn-text {
+		font-size: 0.875rem;
+	}
 }
 
 @media (min-width: 992px) {
-  .main-container {
-    margin: 0 4rem;
-  }
+	.main-container {
+		margin: 0 4rem;
+	}
 
-  .title {
-    margin: 3rem 0 3rem 0;
-    font-size: 2rem;
-  }
+	.title {
+		margin: 3rem 0 3rem 0;
+		font-size: 2rem;
+	}
 
-  .auth-img {
-    width: 40vw;
-  }
+	.auth-img {
+		width: 40vw;
+	}
 
-  .auth-container {
-    width: 25.75rem;
-  }
+	.auth-container {
+		width: 25.75rem;
+	}
 
-  .auth-input {
-    height: 3.875rem;
-    font-size: 1em;
-  }
+	.auth-input {
+		height: 3.875rem;
+		font-size: 1em;
+	}
 
-  .auth-input::placeholder {
-    font-size: 1rem;
-  }
+	.auth-input::placeholder {
+		font-size: 1rem;
+	}
 
-  .login-btn {
-    height: 3.875rem;
-  }
+	.login-btn {
+		height: 3.875rem;
+	}
 
-  .register-btn {
-    height: 3.875rem;
-  }
+	.register-btn {
+		height: 3.875rem;
+	}
 
-  .login-btn-text {
-    font-size: 1rem;
-  }
+	.login-btn-text {
+		font-size: 1rem;
+	}
 
-  .register-btn-text {
-    font-size: 1rem;
-  }
+	.register-btn-text {
+		font-size: 1rem;
+	}
 }
 
 @media (min-width: 1200px) {
-  .main-container {
-    margin: 0 4rem;
-  }
+	.main-container {
+		margin: 0 4rem;
+	}
 
-  .title {
-    margin: 3rem 0 3rem 0;
-    font-size: 3rem;
-  }
+	.title {
+		margin: 3rem 0 3rem 0;
+		font-size: 3rem;
+	}
 
-  .auth-container {
-    width: 25.75rem;
-    margin-top: 5rem;
-  }
+	.auth-container {
+		width: 25.75rem;
+		margin-top: 5rem;
+	}
 
-  .auth-input {
-    height: 3.875rem;
-    font-size: 1.125rem;
-  }
+	.auth-input {
+		height: 3.875rem;
+		font-size: 1.125rem;
+	}
 
-  .auth-input::placeholder {
-    font-size: 1.125rem;
-  }
+	.auth-input::placeholder {
+		font-size: 1.125rem;
+	}
 
-  .login-btn {
-    height: 3.875rem;
-  }
+	.login-btn {
+		height: 3.875rem;
+	}
 
-  .register-btn {
-    height: 3.875rem;
-  }
+	.register-btn {
+		height: 3.875rem;
+	}
 
-  .login-btn-text {
-    font-size: 1.125rem;
-  }
+	.login-btn-text {
+		font-size: 1.125rem;
+	}
 
-  .register-btn-text {
-    font-size: 1.125rem;
-  }
+	.register-btn-text {
+		font-size: 1.125rem;
+	}
 }
