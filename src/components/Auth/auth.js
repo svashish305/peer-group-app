@@ -4,7 +4,6 @@ import { useCookies } from 'react-cookie';
 import { useMediaQuery } from 'react-responsive';
 import { Container, Row, Col, Image, Button } from 'react-bootstrap';
 import './auth.scss';
-import { toast } from 'react-toastify';
 
 function Auth() {
 	const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' });
