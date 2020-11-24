@@ -19,7 +19,7 @@ function Auth() {
 
 	useEffect(() => {
 		// if (token['pg-token']) window.location.href = '/dashboard';
-		if (token['pg-token'].length > 9) {
+		if (token['pg-token']?.length > 9) {
 			window.location.href = '/dashboard';
 		}
 	}, [token]);
@@ -27,13 +27,17 @@ function Auth() {
 	const loginClicked = () => {
 		API.loginUser({ email, password })
 			.then((resp) => setToken('pg-token', resp.access))
-			.catch((error) => toast.error('Invalid Credentials! Please try again!'));
+			.catch((error) => console.error(error));
+
+		if (token['pg-token']?.length === 9) {
+			toast.error('Invalid Credentials. Please try again!');
+		}
 	};
 
 	const registerClicked = () => {
 		API.registerUser({ email, password })
 			.then(() => loginClicked())
-			.catch((error) => console.log(error));
+			.catch((error) => console.error(error));
 	};
 
 	const isDisabled = email.length === 0 || password.length === 0;
