@@ -49,18 +49,24 @@
 	background: var(--secondary);
 	border: 1px solid var(--primary);
 	border-radius: 5px;
+
+	&:hover {
+		.register-btn-text {
+			color: var(--secondary);
+		}
+
+		&:disabled {
+			.register-btn-text {
+				color: var(--primary);
+			}
+		}
+	}
 }
 
 .register-btn-text {
 	text-transform: uppercase;
 	font-family: 'EncodeSansSemibold';
 	color: var(--primary);
-}
-
-.register-btn:hover {
-	.register-btn-text {
-		color: var(--secondary);
-	}
 }
 
 .login-btn-text {
