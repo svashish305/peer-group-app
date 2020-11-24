@@ -1,150 +1,156 @@
 @import './custom.scss';
 
 :root {
-  // colors
-  --primary: #6c63ff;
-  --secondary: #fff;
-  --accent: #5d55e7;
-  --inputColor: #e7effd;
-  --inputPlaceholderColor: #65617d;
-  --readOnlyColor: #e6e8ec;
+	// colors
+	--primary: #6c63ff;
+	--secondary: #fff;
+	--accent: #5d55e7;
+	--inputColor: #e7effd;
+	--inputPlaceholderColor: #65617d;
+	--readOnlyColor: #e6e8ec;
 }
 
 // fonts
 @font-face {
-  font-family: 'EncodeSansLight';
-  src: url('/assets/fonts/Encode_Sans/encode-sans.light.ttf');
-  font-weight: normal;
-  font-style: normal;
+	font-family: 'EncodeSansLight';
+	src: url('/assets/fonts/Encode_Sans/encode-sans.light.ttf');
+	font-weight: normal;
+	font-style: normal;
 }
 
 @font-face {
-  font-family: 'EncodeSansRegular';
-  src: url('/assets/fonts/Encode_Sans/encode-sans.regular.ttf');
-  font-weight: normal;
-  font-style: normal;
+	font-family: 'EncodeSansRegular';
+	src: url('/assets/fonts/Encode_Sans/encode-sans.regular.ttf');
+	font-weight: normal;
+	font-style: normal;
 }
 
 @font-face {
-  font-family: 'EncodeSansSemibold';
-  src: url('/assets/fonts/Encode_Sans/encode-sans.semibold.ttf');
-  font-weight: normal;
-  font-style: normal;
+	font-family: 'EncodeSansSemibold';
+	src: url('/assets/fonts/Encode_Sans/encode-sans.semibold.ttf');
+	font-weight: normal;
+	font-style: normal;
 }
 
 @font-face {
-  font-family: 'EncodeSansMedium';
-  src: url('/assets/fonts/Encode_Sans/encode-sans.medium.ttf');
-  font-weight: normal;
-  font-style: normal;
+	font-family: 'EncodeSansMedium';
+	src: url('/assets/fonts/Encode_Sans/encode-sans.medium.ttf');
+	font-weight: normal;
+	font-style: normal;
 }
 
 @font-face {
-  font-family: 'EncodeSansBold';
-  src: url('/assets/fonts/Encode_Sans/encode-sans.bold.ttf');
-  font-weight: normal;
-  font-style: normal;
+	font-family: 'EncodeSansBold';
+	src: url('/assets/fonts/Encode_Sans/encode-sans.bold.ttf');
+	font-weight: normal;
+	font-style: normal;
 }
 
 @font-face {
-  font-family: 'EncodeSansExtrabold';
-  src: url('/assets/fonts/Encode_Sans/encode-sans.extrabold.ttf');
-  font-weight: normal;
-  font-style: normal;
+	font-family: 'EncodeSansExtrabold';
+	src: url('/assets/fonts/Encode_Sans/encode-sans.extrabold.ttf');
+	font-weight: normal;
+	font-style: normal;
 }
 
 .App {
-  text-align: center;
+	text-align: center;
 }
 
 .App-header {
-  background-color: theme-color(primary);
-  min-height: 8vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-family: 'EncodeSansExtrabold';
-  font-size: calc(10px + 2vmin);
-  color: white;
+	background-color: theme-color(primary);
+	min-height: 8vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	font-family: 'EncodeSansExtrabold';
+	font-size: calc(10px + 2vmin);
+	color: white;
 }
 
 .App-link {
-  color: #61dafb;
+	color: #61dafb;
 }
 
 // common styles
 .pointer {
-  cursor: pointer;
+	cursor: pointer;
 }
 
 a:hover {
-  color: var(--secondary) !important;
-  text-decoration: none !important;
+	color: var(--secondary) !important;
+	text-decoration: none !important;
 }
 
 .flex-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.errorMsg {
+	color: red;
+	font-family: 'EncodeSansRegular';
+	font-size: 0.875rem;
 }
 
 // margin
 .mt-66 {
-  margin-top: 4.125rem;
+	margin-top: 4.125rem;
 }
 
 .mt-42 {
-  margin-top: 2.625rem;
+	margin-top: 2.625rem;
 }
 
 .mt-34 {
-  margin-top: 2.125rem;
+	margin-top: 2.125rem;
 }
 
 .mt-20 {
-  margin-top: 1.25rem;
+	margin-top: 1.25rem;
 }
 
 .mt-8 {
-  margin-top: 0.5rem;
+	margin-top: 0.5rem;
 }
 
 .mb-320 {
-  margin-bottom: 20rem !important;
+	margin-bottom: 20rem !important;
 }
 
 .mb-54 {
-  margin-bottom: 3.375rem;
+	margin-bottom: 3.375rem;
 }
 
 .mb-32 {
-  margin-bottom: 2rem;
+	margin-bottom: 2rem;
 }
 
 .mb-26 {
-  margin-bottom: 1.625rem;
+	margin-bottom: 1.625rem;
 }
 
 .mb-20 {
-  margin-bottom: 1.25rem;
+	margin-bottom: 1.25rem;
 }
 
 .mb-16 {
-  margin-bottom: 1rem;
+	margin-bottom: 1rem;
 }
 
 .mb-12 {
-  margin-bottom: 0.75rem;
+	margin-bottom: 0.75rem;
 }
 // end of margin
 
 // padding
 .p-16 {
-  padding: 1rem;
+	padding: 1rem;
 }
 
 .p-26-24 {
-  padding: 1.625rem 1.5rem;
+	padding: 1.625rem 1.5rem;
 }
 // end of padding
