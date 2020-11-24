@@ -4,6 +4,7 @@ import { useCookies } from 'react-cookie';
 import { useMediaQuery } from 'react-responsive';
 import { Container, Row, Col, Image, Button } from 'react-bootstrap';
 import './auth.scss';
+import { toast } from 'react-toastify';
 
 function Auth() {
 	const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' });
@@ -27,6 +28,10 @@ function Auth() {
 		API.loginUser({ email, password })
 			.then((resp) => setToken('pg-token', resp.access))
 			.catch((error) => console.error(error));
+
+		if (token['pg-token']?.length === 9) {
+			toast.error('Invalid Credentials. Please try again!');
+		}
 	};
 
 	const registerClicked = () => {
