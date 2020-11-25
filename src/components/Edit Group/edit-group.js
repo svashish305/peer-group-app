@@ -190,9 +190,7 @@ function EditGroup(props) {
 												<Row className='user-list-item mb-20'>
 													<Col className='p-0 name-col'>
 														<div className='user-name'>
-															{user.name
-																? user.name
-																: user.email && user.email.split('@')[0]}
+															{user.email.split('@')[0]}
 														</div>
 													</Col>
 													<Col className='p-0'>

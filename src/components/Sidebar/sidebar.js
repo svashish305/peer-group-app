@@ -17,12 +17,7 @@ function Sidebar(props) {
 			{props.loggedInUser ? (
 				<Menu right disableAutoFocus outerContainerId={'outer-container'}>
 					<label className='username' onClick={(e) => e.preventDefault()}>
-						Hi{' '}
-						{props.loggedInUser.name
-							? props.loggedInUser.name
-							: props.loggedInUser.email &&
-							  props.loggedInUser.email.split('@')[0]}
-						!
+						Hi {props.loggedInUser.email.split('@')[0]}!
 					</label>
 					<a
 						id='logout'
