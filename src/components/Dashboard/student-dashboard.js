@@ -23,7 +23,7 @@ function StudentDashboard(props) {
 	const [showFeedbackClicked, setShowFeedbackClicked] = useState(false);
 	const [showMeetingClicked, setShowMeetingClicked] = useState(false);
 	const [timeRange, setTimeRange] = useState(null);
-	const [slot, setSlot] = useState(null);
+	const [slot, setSlot] = useState({ start: '1900', end: '2100' });
 
 	useEffect(
 		() => {
@@ -73,7 +73,7 @@ function StudentDashboard(props) {
 	};
 
 	const saveAvailability = () => {
-		if (slot.end - slot.start >= 200) {
+		if (slot?.end - slot?.start >= 200) {
 			API.saveUserAvailability(props.loggedInUser.id, slot, token['pg-token'])
 				.then((res) => toast.success('Saved Availability!'))
 				.catch((err) => console.log(err));
@@ -128,9 +128,7 @@ function StudentDashboard(props) {
 									<Row key={peer && peer.id} className='mt-20'>
 										<Col>
 											<div className='flex-center read-only'>
-												{peer.name !== 'New Student'
-													? peer.name
-													: peer.email.split('@')[0]}
+												{peer.name ? peer.name : peer.email.split('@')[0]}
 											</div>
 										</Col>
 										<Col>

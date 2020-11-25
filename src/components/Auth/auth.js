@@ -39,7 +39,7 @@ function Auth() {
 	};
 
 	const registerClicked = () => {
-		API.registerUser({ email, password })
+		API.registerUser({ email, password, is_student: true })
 			.then(() => loginClicked())
 			.catch((error) => console.error(error));
 	};

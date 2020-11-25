@@ -34,7 +34,7 @@ function GiveFeedback(props) {
 				<Row>
 					<label className='header-text'>
 						Write feedback for "
-						{props.receiver.name !== 'New Student'
+						{props.receiver.name
 							? props.receiver.name
 							: props.receiver.email.split('@')[0]}
 						" :
