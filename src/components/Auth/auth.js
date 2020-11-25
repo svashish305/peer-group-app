@@ -48,10 +48,6 @@ function Auth() {
 
 	const isDisabled = email.length === 0 || password.length === 0;
 
-	const onSubmit = (data) => {
-		console.log('data logged');
-	};
-
 	return (
 		<div className='main-container'>
 			<span className={`flex-center title ${is4k ? 'mb-320' : null}`}>
@@ -87,7 +83,7 @@ function Auth() {
 								isTabletOrMobile || isTabletOrMobileDevice ? 'p-16' : 'p-26-24'
 							}`}
 						>
-							<form onSubmit={handleSubmit(onSubmit)}>
+							<form onSubmit={handleSubmit()}>
 								<input
 									id='emailId'
 									className={`auth-input ${
