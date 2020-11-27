@@ -128,7 +128,7 @@ function StudentDashboard(props) {
 									<Row key={peer && peer.id} className='mt-20'>
 										<Col>
 											<div className='flex-center read-only'>
-												{peer.name ? peer.name : peer.email.split('@')[0]}
+												{peer.email.split('@')[0]}
 											</div>
 										</Col>
 										<Col>

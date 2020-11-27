@@ -33,11 +33,7 @@ function GiveFeedback(props) {
 			<Container>
 				<Row>
 					<label className='header-text'>
-						Write feedback for "
-						{props.receiver.name
-							? props.receiver.name
-							: props.receiver.email.split('@')[0]}
-						" :
+						Write feedback for "{props.receiver.email.split('@')[0]}" :
 					</label>
 				</Row>
 				<Row>
