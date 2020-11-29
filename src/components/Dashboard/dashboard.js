@@ -6,6 +6,7 @@ import { Image, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faTimes } from '@fortawesome/free-solid-svg-icons';
 import './dashboard.scss';
+import { toast } from 'react-toastify';
 import EditGroup from '../Edit Group/edit-group';
 import StudentDashboard from './student-dashboard';
 
@@ -67,12 +68,18 @@ function Dashboard(props) {
 	};
 
 	const deleteGroup = (groupId) => {
-		API.deleteGroup(groupId, token['pg-token'])
-			.then(() => {
-				const newGroups = groups.filter((g) => g.id !== groupId);
-				setGroups(newGroups);
-			})
-			.catch((err) => console.log(err));
+		API.getUsersInGroup(groupId, token['pg-token']).then((users) => {
+			if (users?.length > 0) {
+				toast.error(`Empty group before deleting!`);
+			} else {
+				API.deleteGroup(groupId, token['pg-token'])
+					.then(() => {
+						const newGroups = groups.filter((g) => g.id !== groupId);
+						setGroups(newGroups);
+					})
+					.catch((err) => console.log(err));
+			}
+		});
 	};
 
 	return (
