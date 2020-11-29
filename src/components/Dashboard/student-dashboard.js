@@ -77,6 +77,8 @@ function StudentDashboard(props) {
 			API.saveUserAvailability(props.loggedInUser.id, slot, token['pg-token'])
 				.then((res) => toast.success('Saved Availability!'))
 				.catch((err) => console.log(err));
+		} else if (slot?.start > slot?.end) {
+			toast.error('Start time must be before End time!');
 		} else {
 			toast.error('Please select min. 2 hrs apart slots!');
 		}
